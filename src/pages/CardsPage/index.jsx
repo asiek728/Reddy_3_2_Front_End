@@ -1,30 +1,40 @@
-import React, {useEffect, useState} from 'react'
-import {Card} from "../../components"
+import React, { useEffect, useState } from 'react'
+import { Card } from "../../components"
+import { useParams } from 'react-router'
+import axios from 'axios'
 
-const CardsPage = ({stackId}) => {
-  const [cards, setCards ] = useState([])
+const CardsPage = () => {
+  const [cards, setCards] = useState([])
   const [cardIncrement, setCardIncrement] = useState(0)
+  const id = useParams()
 
-  async function fetchCards(){
-    const response = await fetch(`http://localhost:3000/flashCards/${stackId}`)
-    const data = await response.json()
-    setCards(data)
-  }
-  function displayNextCard(){
+  useEffect(() => {
+    const fetchCards = async () => {
+      console.log("check 1")
+      const { data } = await axios.get(`http://localhost:3000/flashCards/${id.id}`)
+      setCards(data)
+      console.log("check 2", data)
+
+    }
+    fetchCards()
+  }, [])
+
+
+
+
+  function displayNextCard() {
     return cards
   }
-  function displayCards(){
-    return cards.map(c => 
-      <Card cardIncrement={cardIncrement} setCardIncrement={setCardIncrement}/>)
+  function displayCards() {
+    return (
+      <>
+        <Card cards={cards} cardIncrement={cardIncrement} setCardIncrement={setCardIncrement} />
+      </>)
   }
 
-  useEffect(()=>{
-    fetchCards()
-  },[])
-
-  useEffect(()=>{
-    displayNextCard()
-  },[cardIncrement])
+  // useEffect(()=>{
+  //   displayNextCard()
+  // },[cardIncrement])
 
   return (
     <>

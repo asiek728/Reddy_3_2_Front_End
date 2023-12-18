@@ -1,0 +1,9 @@
+.stackDiv {
+    background-color: rgb(187, 187, 187);
+    border-color: black;
+    border-radius: 1px;
+    border-style: double;
+    width: 250px;
+    height: 250px;
+    margin: 50px;
+}
