@@ -1,1 +1,1 @@
-// export {default as Entry} from "../pages/Entry"
+export {default as FlashStack} from "./FlashStack"
