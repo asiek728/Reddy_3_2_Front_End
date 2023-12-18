@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const FlashStack = ({ stack }) => {
   return (
-    <div className='stackDiv'>
+    <div role='stackDiv' className='stackDiv'>
       <h2>{stack.topic} </h2>
       <p>{stack.cardCount} cards </p>
       <Link to={`${stack._id}`} key={stack._id}>
