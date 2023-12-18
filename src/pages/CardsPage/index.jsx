@@ -7,39 +7,37 @@ const CardsPage = () => {
   const [cards, setCards] = useState([])
   const [cardIncrement, setCardIncrement] = useState(0)
   const id = useParams()
+  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     const fetchCards = async () => {
-      console.log("check 1")
       const { data } = await axios.get(`http://localhost:3000/flashCards/${id.id}`)
       setCards(data)
-      console.log("check 2", data)
-
+      setLoading(false)
     }
     fetchCards()
   }, [])
 
 
-
-
-  function displayNextCard() {
-    return cards
-  }
   function displayCards() {
     return (
       <>
-        <Card cards={cards} cardIncrement={cardIncrement} setCardIncrement={setCardIncrement} />
+        {
+          loading
+            ? <p style={{ marginTop: "200px", fontSize: "60px" }}>Loading...</p>
+            : <Card cards={cards} cardIncrement={cardIncrement} setCardIncrement={setCardIncrement} />
+        }
       </>)
   }
 
-  // useEffect(()=>{
-  //   displayNextCard()
-  // },[cardIncrement])
-
   return (
     <>
-      <h1>CardsPage</h1>
-      <div>{displayCards()}</div>
+    <h1> ... flashcards</h1>
+      <h2>Press on card to flip it</h2>
+      <div>
+        {displayCards()}
+      </div>
     </>
   )
 }

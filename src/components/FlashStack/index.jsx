@@ -1,12 +1,10 @@
 import React from 'react'
 import './style.css'
 import { Link } from 'react-router-dom'
-import { Card } from '..'
-
 
 const FlashStack = ({ stack }) => {
   return (
-    <div className='stackDiv'>
+    <div role='stackDiv' className='stackDiv'>
       <h2>{stack.topic} </h2>
       <p>{stack.cardCount} cards </p>
       <Link to={`${stack._id}`} key={stack._id}>
