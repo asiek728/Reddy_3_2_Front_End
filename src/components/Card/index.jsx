@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PassedButtons from '../PassedButtons'
+import './style.css'
+
 const Card = ({ cards, cardIncrement, setCardIncrement }) => {
   const [flip, setFlip] = useState(false)
 
@@ -7,18 +9,13 @@ const Card = ({ cards, cardIncrement, setCardIncrement }) => {
     setFlip(!flip)
   }
 
-  console.log("check3", cards)
-
   return (
     <>
-      <div>
-        {/* {flip ? cards[cardIncrement].frontSide : cards[cardIncrement].backSide} */}
-        {/* {cards[0].backSide}
-        <button onClick={changeSide}>flip</button> */}
-        test
+      <div className='flashCardDiv' onClick={changeSide}>
+        {flip ? <p>{cards[cardIncrement].frontSide}</p> : <p>{cards[cardIncrement].backSide}</p>}
       </div>
 
-      <PassedButtons />
+      <PassedButtons cardIncrement={cardIncrement} setCardIncrement={setCardIncrement}/>
     </>
   )
 }

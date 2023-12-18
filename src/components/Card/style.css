@@ -1,0 +1,22 @@
+.flashCardDiv {
+    background-color: rgb(155, 175, 204);
+    border-color: black;
+    border-radius: 1px;
+    border-style: double;
+    min-width: 250px;
+    min-height: 250px;
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.flashCardDiv p{
+    font-size: 40px;
+}
+
+.flashCardDiv:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+    translate: 1%;
+  }

@@ -1,0 +1,9 @@
+.passButton {
+    background-color: rgb(54, 199, 115);
+    margin: 30px;
+}
+
+.failButton {
+    background-color: rgb(214, 58, 53);
+    margin: 30px;
+}
