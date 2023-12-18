@@ -10,7 +10,6 @@ const FlashStacksPage = () => {
     const displayStacks = async () => {
       const { data } = await axios.get("http://localhost:3000/flashStacks")
       setStacks(data)
-      console.log(data)
     }
     displayStacks()
   }, [])
