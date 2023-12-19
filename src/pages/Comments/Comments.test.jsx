@@ -29,7 +29,7 @@ describe('CommentsPage', () => {
     it('Contains a div element', () => {
         const div = screen.getByRole('div')
         expect(div).toBeInTheDocument()
-        expect(div.children.length).toBe(1)
+        expect(div.children.length).toBe(2)
     })
 
 
