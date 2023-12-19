@@ -17,16 +17,14 @@ const FlashStacksPage = () => {
 
   return (
     <>
-    <h1>Your flashcard stacks</h1>
+      <h1>Your flashcard stacks</h1>
 
-    <div className='stacksDiv'>
-      {stacks.map(stack => (
-        <Link to={`${stack._id}`} key={stack._id}>
-          <FlashStack stack={stack}  />
-        </Link>
-      ))
-      }
-    </div>
+      <div className='stacksDiv'>
+        {stacks.map(stack => (
+          <FlashStack stack={stack} />
+        ))
+        }
+      </div>
 
     </>
   )
