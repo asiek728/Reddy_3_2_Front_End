@@ -7,7 +7,7 @@ const CommentItem = () => {
 	let { id } = useParams();
 
 	useEffect(() => {
-		const fetchComment = async () => {
+		const fetchComment = async (id) => {
 			const response = await fetch(`http://localhost:3000/comments/${id}`)
 			const data = await response.json()
 			setComment(data)

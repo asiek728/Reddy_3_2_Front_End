@@ -20,7 +20,7 @@ const ThreadsList = ({key}) => {
 		const displayThread = () => {
 			return thread.map((t, index) => (
 				<div key={t._id}>
-					<Link to={`/comments/${key}`}>{t.Question}</Link>
+					<Link to={`/comments/${t._id}`}>{t.Question}</Link>
 				</div>
 			));
 		};
