@@ -9,6 +9,7 @@ const FlashStack = ({ stack }) => {
       <p>{stack.cardCount} cards </p>
       <Link to={`${stack._id}`} key={stack._id}>
         <button>learn</button>
+        <button>Add new flashcard</button>
       </Link>
     </div>
   )
