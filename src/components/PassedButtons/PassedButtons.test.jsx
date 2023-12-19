@@ -32,14 +32,14 @@ describe('Card Component', () => {
         expect(fail).toBeInTheDocument()
     })
 
-    it('incriments counter when pass button is pressed', () => {
+    it('increments counter when pass button is pressed', () => {
         const pass = screen.getByRole('button', { name: /Got it/i })
         expect(cardIncrement).toBe(0)
         userEvent.click(pass)
         expect(cardIncrement).toBe(1)
     })
 
-    it('incriments counter when fail button is pressed', () => {
+    it('increments counter when fail button is pressed', () => {
         const fail = screen.getByRole('button', { name: /Not quite/i })
         expect(cardIncrement).toBe(0)
         userEvent.click(fail)

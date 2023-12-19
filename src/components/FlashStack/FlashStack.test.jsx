@@ -20,10 +20,10 @@ describe('FlashStack Component', () => {
         </MemoryRouter>
     )
 
-    it('displays a stack with 3 children', () => {
+    it('displays a stack with 7 children', () => {
         const stacks = screen.getByRole('stackDiv')
         expect(stacks).toBeInTheDocument()
-        expect(stacks.childNodes.length).toBe(3)
+        expect(stacks.childNodes.length).toBe(7)
     })
 })
 

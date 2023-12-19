@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "test": "vitest run --reporter verbose",
+    "coverage": "vitest run --coverage",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
