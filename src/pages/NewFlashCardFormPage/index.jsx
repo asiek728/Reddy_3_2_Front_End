@@ -1,19 +1,92 @@
-import React from 'react'
+import React, { useState, useEffect } from "react"
+import { useParams } from 'react-router'
+import axios from 'axios'
 
 const NewFlashCardFormPage = () => {
+
+    const [inputFrontText, setInputFrontText] = useState('')
+    const [inputBackText, setInputBackText] = useState('')
+    const [cardCount, setCardCount] = useState('')
+    const id = useParams()
+
+    useEffect(() => {
+        const displayCardsNo = async () => {
+            const { data } = await axios.get(`http://localhost:3000/flashStacks/${id.id}`)
+            setCardCount(data.cardCount + 1)
+        }
+        displayCardsNo()
+    }, [])
+
+    function handleInputFrontText(e) {
+        setInputFrontText(e.target.value);
+    }
+
+    function handleInputBackText(e) {
+        setInputBackText(e.target.value);
+    }
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        await createNewFlashCard()
+        await increaseStackCardsNumber()
+        setInputFrontText('')
+        setInputBackText('')
+    }
+
+    async function createNewFlashCard(e) {
+        const options = {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                {
+                    "stackID": id.id,
+                    "frontSide": inputFrontText,
+                    "backSide": inputBackText
+                })
+
+        }
+        const response = await fetch(
+            `http://localhost:3000/flashCards`,
+            options
+        );
+
+        return (
+            <>Card added!</>
+        )
+    }
+
+    async function increaseStackCardsNumber() {
+        const options = {
+            method: "PATCH",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "cardCount": cardCount
+            })
+        }
+
+        const response = await fetch(
+            `http://localhost:3000/flashStacks/${id.id}`,
+            options
+        );
+    }
+
     return (
         <div className="newUpdatePopup" id="newUpdatePopup">
             <h1>Add a New Flash Card</h1>
-            <form className="popupContainer">
-                <fieldset id="nameField">
-                    <label htmlFor="frontFlashCard">Front:</label>
-                    <input type="text" id="frontFlashCard" name="frontFlashCard" required />
-                </fieldset>
-                <fieldset id="statusField">
-                    <label htmlFor="backFlashCard">Back:</label>
-                    <input type="text" id="backFlashCard" name="backFlashCard" required />
-                </fieldset>
-                <input type="submit" className="btn acceptBtn" value="Accept" id="postFlashCard" />
+
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="frontFlashCard">Front:</label>
+                <input value={inputFrontText} type="text" id="frontFlashCard" className="flashCardInput" onChange={handleInputFrontText} />
+                <label htmlFor="backFlashCard">Back:</label>
+
+                <input value={inputBackText} type="text" id="backFlashCard" className="flashCardInput" onChange={handleInputBackText} />
+                <button type="submit" className="flashCardButton">Add</button>
             </form>
         </div>
     )
