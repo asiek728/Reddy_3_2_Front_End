@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import { Routes, Route } from "react-router-dom"
 import { Threads, Entry, Comments, FlashStacksPage, CardsPage, NewFlashCardFormPage } from './pages'
-import { Comment, NavBar } from "./components"
+import { NavBar } from "./components"
 
 function App() {
   return (
@@ -16,8 +16,7 @@ function App() {
           </Route>
           <Route path="/flashStacks/:id/new" element={<NewFlashCardFormPage />} />
           <Route path="/thread" element={<Threads />} />
-          <Route path="/comments" element={<Comments />} />
-          <Route path="/comments/:id" element={<Comment />} />
+          <Route path="/comments/:id" element={<Comments />} />
         </Route>
       </Routes>
     </>
