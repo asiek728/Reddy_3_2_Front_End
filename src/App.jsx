@@ -1,26 +1,22 @@
-import React from 'react'
-import './App.css'
-import {Routes, Route} from "react-router-dom"
-import { Threads, Entry, Comments, Entry, FlashStacksPage, CardsPage } from './pages'
-import { Comment } from "./components/index"
+import React from "react";
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { Threads, Comments, Entry, FlashStacksPage, CardsPage } from "./pages";
 
 function App() {
-
   return (
     <>
-
       <Routes>
         <Route index element={<Entry />} />
         <Route path="/flashStacks">
           <Route index element={<FlashStacksPage />} />
           <Route path=":id" element={<CardsPage />} />
         </Route>
-      <Route path="/thread" element={<Threads/>}/>
-      <Route path="/comments" element={<Comments />}/>
-      <Route path="/comments/:id" element={<Comment/>}/>
+        <Route path="/thread" element={<Threads />} />
+        <Route path="/comments/:id" element={<Comments />}/>
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
