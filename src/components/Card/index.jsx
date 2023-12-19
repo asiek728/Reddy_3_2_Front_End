@@ -11,11 +11,11 @@ const Card = ({ cards, cardIncrement, setCardIncrement }) => {
 
   return (
     <>
-      <div className='flashCardDiv' onClick={changeSide}>
+      <div role="displayCard" className='flashCardDiv' onClick={changeSide}>
         {flip ? <p>{cards[cardIncrement].frontSide}</p> : <p>{cards[cardIncrement].backSide}</p>}
       </div>
 
-      <PassedButtons cardIncrement={cardIncrement} setCardIncrement={setCardIncrement}/>
+      <PassedButtons cardIncrement={cardIncrement} setCardIncrement={setCardIncrement} card={cards[cardIncrement]}/>
     </>
   )
 }
