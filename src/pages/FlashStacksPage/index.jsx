@@ -2,19 +2,33 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { FlashStack, StackForm } from '../../components'
+import { useAuthContext } from "../../hooks/useAuthContext"
+
 
 const FlashStacksPage = () => {
   const [stacks, setStacks] = useState([])
   const [topic, setTopic] = useState("")
 
+  /////AUTH
+  const { user } = useAuthContext()
+
 
   useEffect(() => {
     const displayStacks = async () => {
-      const { data } = await axios.get("http://localhost:3000/flashStacks")
+      const { data } = await axios.get("http://localhost:3000/flashStacks", {
+        ///////////////////////AUTH
+        headers: {
+          'Authorization': `Bearer ${user.token}`
+        }
+        //////////////////////////
+      })
       setStacks(data)
     }
-    displayStacks()
-  }, [stacks,topic])
+     ////AUTH
+     if (user) {
+       displayStacks(user)
+     }
+  }, [stacks, user])  ///Need to add user here as dependancy I think (was topic)
 
 
   return (
