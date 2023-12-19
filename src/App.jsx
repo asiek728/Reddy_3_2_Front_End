@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import {Routes, Route} from "react-router-dom"
-import { Threads, Entry, Comments, Entry, FlashStacksPage, CardsPage } from './pages'
+import { Threads, Comments, Entry, FlashStacksPage, CardsPage } from './pages'
 import { Comment } from "./components/index"
 
 function App() {
