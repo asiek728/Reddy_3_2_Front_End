@@ -18,6 +18,7 @@ const FlashStacksPage = () => {
   return (
     <>
       <h1>Your flashcard stacks</h1>
+
       <StackForm/>
       <div className='stacksDiv'>
         {stacks.map(stack => (
