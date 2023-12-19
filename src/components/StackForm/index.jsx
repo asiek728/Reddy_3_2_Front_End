@@ -3,8 +3,8 @@ import axios from "axios"
 
 // StudentID, topic, cardCount, stackTimer 
 
-const StackForm = () => {
-    const [topic, setTopic] = useState("")
+const StackForm = ({topic, setTopic}) => {
+
     const [text, setText] = useState("")
     const [loadingPOST, setLoadingPOST] = useState(true);
 

@@ -5,6 +5,8 @@ import { FlashStack, StackForm } from '../../components'
 
 const FlashStacksPage = () => {
   const [stacks, setStacks] = useState([])
+  const [topic, setTopic] = useState("")
+
 
   useEffect(() => {
     const displayStacks = async () => {
@@ -12,13 +14,13 @@ const FlashStacksPage = () => {
       setStacks(data)
     }
     displayStacks()
-  }, [])
+  }, [stacks,topic])
 
 
   return (
     <>
       <h1>Your flashcard stacks</h1>
-
+      <StackForm topic={topic} setTopic={setTopic}/>
       <StackForm/>
       <div className='stacksDiv'>
         {stacks.map(stack => (

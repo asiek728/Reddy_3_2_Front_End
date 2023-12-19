@@ -17,7 +17,7 @@ const CardsPage = () => {
       setLoading(false)
     }
     fetchCards()
-  }, [])
+  }, [cards])
 
 
   function displayCards() {
