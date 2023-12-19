@@ -10,7 +10,7 @@ const FlashStacksPage = () => {
 
   useEffect(() => {
     const displayStacks = async () => {
-      const { data } = await axios.get("https://reddy-3-2-back-end.onrender.com/flashStacks")
+      const { data } = await axios.get("http://localhost:3000/flashStacks")
       setStacks(data)
     }
     displayStacks()
@@ -21,6 +21,7 @@ const FlashStacksPage = () => {
     <>
       <h1>Your flashcard stacks</h1>
       <StackForm topic={topic} setTopic={setTopic}/>
+      <StackForm/>
       <div className='stacksDiv'>
         {stacks.map(stack => (
             <FlashStack stack={stack} key={stack._id} />
