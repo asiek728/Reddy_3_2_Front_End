@@ -7,36 +7,43 @@ const Card = ({ cards, cardIncrement, setCardIncrement }) => {
   function changeSide() {
     setFlip(!flip)
   }
-  async function deleteCard(){
+  async function deleteCard() {
     console.log(cards[cardIncrement]._id)
     const options = {
       method: "DELETE",
       headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
     }
-
-    }
-    try{
-      console.log("hit")
-      const destroy = await fetch(`http://localhost:3000/flashCards/${cards[cardIncrement]._id}`,options)
-      console.log("Deleted Stack: "+ cards.frontSide)
+    try {
+      const destroy = await fetch(`http://localhost:3000/flashCards/${cards[cardIncrement]._id}`, options)
+      console.log("Deleted Stack: " + cards.frontSide)
       window.location.reload(true)
-    }catch(error){
+    } catch (error) {
       console.log(error.message)
-      
     }
-
   }
 
   return (
     <>
-      <div role="displayCard" className='flashCardDiv' onClick={changeSide}>
-        {flip ? <p>{cards[cardIncrement].frontSide}</p> : <p>{cards[cardIncrement].backSide}</p>}
-      </div>
+      {
+        cards.length > cardIncrement
+          ?
+          <>
+            <div role="displayCard" className='flashCardDiv' onClick={changeSide}>
+              {flip ? <p>{cards[cardIncrement].frontSide}</p> : <p>{cards[cardIncrement].backSide}</p>}
+            </div>
 
-      <PassedButtons cardIncrement={cardIncrement} setCardIncrement={setCardIncrement} card={cards[cardIncrement]}/><br />
-      <button onClick={deleteCard}>Delete card</button>
+            <PassedButtons cardIncrement={cardIncrement} setCardIncrement={setCardIncrement} card={cards[cardIncrement]} /><br />
+            <button onClick={deleteCard}>Delete card</button>
+          </>
+          :
+          <>
+            <p style={{ marginTop: "100px", fontSize: "60px" }}>No more cards left</p>
+            <p style={{ marginTop: "100px", fontSize: "60px" }}>Score: </p>
+          </>
+      }
     </>
   )
 }

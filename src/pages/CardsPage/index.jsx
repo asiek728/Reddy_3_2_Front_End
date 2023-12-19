@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Card } from "../../components"
 import { useParams } from 'react-router'
+import { Link } from 'react-router-dom'
+
 import axios from 'axios'
 
 const CardsPage = () => {
@@ -8,7 +10,6 @@ const CardsPage = () => {
   const [cardIncrement, setCardIncrement] = useState(0)
   const id = useParams()
   const [loading, setLoading] = useState(true);
-
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -19,21 +20,29 @@ const CardsPage = () => {
     fetchCards()
   }, [cards])
 
-
   function displayCards() {
     return (
       <>
         {
           loading
             ? <p style={{ marginTop: "200px", fontSize: "60px" }}>Loading...</p>
-            : <Card cards={cards} cardIncrement={cardIncrement} setCardIncrement={setCardIncrement} />
+            :
+            cards.length < 1
+              ? <>
+                <p style={{ marginTop: "200px", fontSize: "60px" }}>The stack is empty...</p>
+                <Link to={`new`} key={id.id}>
+                  <button>Add card</button>
+                </Link>
+              </>
+              :
+              < Card cards={cards} cardIncrement={cardIncrement} setCardIncrement={setCardIncrement} />
         }
       </>)
   }
 
   return (
     <>
-    <h1> ... flashcards</h1>
+      <h1> ... flashcards</h1>
       <h2>Press on card to flip it</h2>
       <div>
         {displayCards()}
