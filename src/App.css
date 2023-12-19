@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+
+
+nav > a {
+  margin-right: 0.5rem;
+  color: var(--text);
+}
+
+header, footer, main {
+  padding: 1rem;
+}

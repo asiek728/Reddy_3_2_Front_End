@@ -8,7 +8,7 @@ const FlashStacksPage = () => {
 
   useEffect(() => {
     const displayStacks = async () => {
-      const { data } = await axios.get("http://localhost:3000/flashStacks")
+      const { data } = await axios.get("https://reddy-3-2-back-end.onrender.com/flashStacks")
       setStacks(data)
     }
     displayStacks()

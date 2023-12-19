@@ -15,7 +15,7 @@ const Card = ({ cards, cardIncrement, setCardIncrement }) => {
         {flip ? <p>{cards[cardIncrement].frontSide}</p> : <p>{cards[cardIncrement].backSide}</p>}
       </div>
 
-      <PassedButtons cardIncrement={cardIncrement} setCardIncrement={setCardIncrement}/>
+      <PassedButtons cardIncrement={cardIncrement} setCardIncrement={setCardIncrement} card={cards[cardIncrement]}/>
     </>
   )
 }
