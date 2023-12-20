@@ -19,6 +19,7 @@ const AddComment = ({ id, input, setInputText, message, setMessage }) => {
             body: JSON.stringify({ comment: input, ThreadID: id, Email: user.email}),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
+                'Authorization': `Bearer ${user.token}`
             },
         })
         .then((res) => res.json())

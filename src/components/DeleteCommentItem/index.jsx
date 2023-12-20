@@ -23,7 +23,10 @@ const DeleteCommentItem = ({ id , setComment, comment }) => {
       if(user.email === email){
         await fetch(`http://localhost:3000/comments/${id}`, {
             method: "DELETE",
-            headers: { 'Content-Type': 'application/json' }
+            headers: { 
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${user.token}` 
+            }
         })
 
         setComment(comment.filter(c => c.userID !== id))

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from 'react-router'
 import axios from 'axios'
+import { useAuthContext } from "../../hooks/useAuthContext"
 
 const NewFlashCardFormPage = () => {
+
+    const { user } = useAuthContext()
 
     const [inputFrontText, setInputFrontText] = useState('')
     const [inputBackText, setInputBackText] = useState('')
@@ -12,11 +15,17 @@ const NewFlashCardFormPage = () => {
 
     useEffect(() => {
         const displayCardsNo = async () => {
-            const { data } = await axios.get(`http://localhost:3000/flashStacks/${id.id}`)
+            const { data } = await axios.get(`http://localhost:3000/flashStacks/${id.id}`, {
+                headers: {
+                  'Authorization': `Bearer ${user.token}`
+                }
+              })
             setCardCount(data.cardCount + 1)
         }
-        displayCardsNo()
-    }, [])
+        if (user) {
+            displayCardsNo(user)
+          }
+    }, [user])
 
     function handleInputFrontText(e) {
         setInputFrontText(e.target.value);
@@ -39,7 +48,7 @@ const NewFlashCardFormPage = () => {
             method: "POST",
             headers: {
                 ////AUTH
-                // 'Authorization': `Bearer ${user.token}`,
+                'Authorization': `Bearer ${user.token}`,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
@@ -65,8 +74,10 @@ const NewFlashCardFormPage = () => {
         const options = {
             method: "PATCH",
             headers: {
+                'Authorization': `Bearer ${user.token}`,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
+                
             },
             body: JSON.stringify({
                 "cardCount": cardCount

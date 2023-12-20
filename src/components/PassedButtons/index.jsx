@@ -1,16 +1,23 @@
 import React from 'react'
 import './style.css'
+import { useAuthContext } from "../../hooks/useAuthContext"
+import { useScore } from '../../context/ScoreContext';
 
 const PassedButtons = ({ cardIncrement, setCardIncrement, card }) => {
+    const { user } = useAuthContext()
+    const { score, setScore } = useScore()
+
     async function updatePass() {
 
         setCardIncrement(cardIncrement + 1)
+        setScore(score + 1)
 
         const options = {
             method: "PATCH",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             },
             body: JSON.stringify({
                 passed: true
@@ -31,7 +38,8 @@ const PassedButtons = ({ cardIncrement, setCardIncrement, card }) => {
             method: "PATCH",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             },
             body: JSON.stringify({
                 passed: false
