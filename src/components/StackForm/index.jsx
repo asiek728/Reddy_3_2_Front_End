@@ -28,11 +28,12 @@ const StackForm = ({topic, setTopic}) => {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             },
             body: JSON.stringify(
                 {
-                    "StudentID": 1,
+                    // "StudentID": 1,
                     "topic": topic,
                     "cardCount": 0,
                     "stackTimer": "1995-10-11T23:00:00.000Z"
