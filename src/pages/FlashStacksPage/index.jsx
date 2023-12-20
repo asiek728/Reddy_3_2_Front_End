@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { FlashStack, StackForm } from '../../components'
 import { useAuthContext } from "../../hooks/useAuthContext"
-
+import './style.css'
+import { useScore } from '../../context/ScoreContext';
 
 const FlashStacksPage = () => {
 
   const [stacks, setStacks] = useState([])
   const [topic, setTopic] = useState("")
+  const { score, setScore } = useScore()
 
   /////AUTH
   const { user } = useAuthContext()
-
+  setScore(0)
+  
   useEffect(() => {
     const displayStacks = async () => {
       const { data } = await axios.get("http://localhost:3000/flashStacks", {
@@ -24,12 +26,11 @@ const FlashStacksPage = () => {
       })
       setStacks(data)
     }
-     ////AUTH
-     if (user) {
-       displayStacks(user)
-     }
-  }, [stacks, user, topic])  ///Need to add user here as dependancy I think (was topic)
-
+    ////AUTH
+    if (user) {
+      displayStacks(user)
+    }
+  }, [stacks, user, topic]) 
 
   return (
     <>

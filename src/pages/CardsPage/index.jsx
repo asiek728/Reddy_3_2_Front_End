@@ -11,7 +11,6 @@ const CardsPage = () => {
   const [cardIncrement, setCardIncrement] = useState(0)
   const id = useParams()
   const [loading, setLoading] = useState(true);
-
   const { user } = useAuthContext()
 
   useEffect(() => {
