@@ -1,7 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
+import { useAuthContext } from '../../hooks/useAuthContext';
 
 const AddThread = () => {
+
+  const { user } = useAuthContext()
 
 	const [formData, setFormData] = useState({
     Question: "",
@@ -9,18 +12,18 @@ const AddThread = () => {
   });
 
 	const subjectOptions = [
-    { value: 'maths', label: 'Maths' },
-    { value: 'english', label: 'English' },
-    { value: 'history', label: 'History' },
-    { value: 'geography', label: 'Geography' },
-		{ value: 'arts', label: 'Arts' },
-		{ value: 'french', label: 'French' },
-		{ value: 'german', label: 'German' },
-		{ value: 'spanish', label: 'Spanish' },
-		{ value: 'economics', label: 'Economics' },
-		{ value: 'sociology', label: 'Sociology' },
-		{ value: 'politics', label: 'Politics' },
-		{ value: 'other', label: 'Other' },
+    { value: 'Maths', label: 'Maths' },
+    { value: 'English', label: 'English' },
+    { value: 'History', label: 'History' },
+    { value: 'Geography', label: 'Geography' },
+		{ value: 'Arts', label: 'Arts' },
+		{ value: 'French', label: 'French' },
+		{ value: 'German', label: 'German' },
+		{ value: 'Spanish', label: 'Spanish' },
+		{ value: 'Economics', label: 'Economics' },
+		{ value: 'Sociology', label: 'Sociology' },
+		{ value: 'Politics', label: 'Politics' },
+		{ value: 'Other', label: 'Other' },
   ];
 
 	const handleChange = (e) => {
@@ -38,8 +41,9 @@ const AddThread = () => {
       const response = await fetch('http://localhost:3000/threads', {
         method: 'POST',
         headers: {
-          Accept: 'application/json',
+          "Accept": 'application/json',
          'Content-type': 'application/json; charset=UTF-8',
+         'Authorization': `Bearer ${user.token}`
         },
         body: JSON.stringify(formData),
       });

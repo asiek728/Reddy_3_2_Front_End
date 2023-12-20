@@ -4,12 +4,15 @@ import {useParams} from 'react-router-dom'
 
 import { AddCommentItem, DeleteCommentItem } from '..';
 
+import { useAuth } from '../../context/ThreadContext';
+
 const CommentItem = () => {
 	const [comment, setComment] = useState([])
 
 	const [input, setInputText] = useState('')
     const [message, setMessage] = useState('')
 
+	const { thread } = useAuth()
 	let { id } = useParams();
 
 	useEffect(() => {
@@ -31,9 +34,9 @@ const CommentItem = () => {
 		))
 	}
 
-
 	return (
 		<>
+		<h1>{thread.Question}</h1>
 		<div> 
 			{displayComment()}
 		</div>
