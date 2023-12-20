@@ -6,14 +6,15 @@ import { useAuthContext } from "../../hooks/useAuthContext"
 
 
 const FlashStacksPage = () => {
+
   const [stacks, setStacks] = useState([])
   const [topic, setTopic] = useState("")
 
   /////AUTH
   const { user } = useAuthContext()
 
-
   useEffect(() => {
+    // console.log(new.date())
     const displayStacks = async () => {
       const { data } = await axios.get("http://localhost:3000/flashStacks", {
         ///////////////////////AUTH
@@ -28,7 +29,7 @@ const FlashStacksPage = () => {
      if (user) {
        displayStacks(user)
      }
-  }, [stacks, user])  ///Need to add user here as dependancy I think (was topic)
+  }, [stacks, user, topic])  ///Need to add user here as dependancy I think (was topic)
 
 
   return (

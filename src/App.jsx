@@ -1,17 +1,8 @@
-import React from "react";
-import "./App.css";
-import { Routes, Route, Navigate } from "react-router-dom";
-import {
-  Threads,
-  Entry,
-  Comments,
-  FlashStacksPage,
-  CardsPage,
-  NewFlashCardFormPage,
-  Login,
-  Signup,
-} from "./pages";
-import { NavBar } from "./components";
+import React from 'react'
+import './App.css'
+import { Routes, Route, Navigate } from "react-router-dom"
+import { Threads, Entry, Comments, FlashStacksPage, CardsPage, NewFlashCardFormPage, Login, Signup, NotFound } from './pages'
+import { NavBar } from "./components"
 
 import { useAuthContext } from "./hooks/useAuthContext";
 
@@ -39,6 +30,7 @@ function App() {
             <Route path="/comments/:id" element={<Comments />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound /> }/>
         </Route>
       </Routes>
     </>
