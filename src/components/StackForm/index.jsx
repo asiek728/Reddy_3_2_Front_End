@@ -7,6 +7,7 @@ const StackForm = ({topic, setTopic}) => {
 
     const [text, setText] = useState("")
     const [loadingPOST, setLoadingPOST] = useState(true);
+    const [message, setMessage] = useState("")
 
     function handleChange(e) {
         setText(e.target.value)
@@ -42,14 +43,19 @@ const StackForm = ({topic, setTopic}) => {
             `http://localhost:3000/flashStacks`,
             options
         );
+        setMessage("Added: "+topic)
+        setTimeout(()=>{
+            setMessage("")
+        },4000)
     }
+
 
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="topic">Topic: </label>
             <input value={text} type="text" onChange={handleChange} placeholder="History"/>
-
             <button type="submit" className="addStackButton">Add</button>
+            <p>{message}</p>
         </form>
 
     )
