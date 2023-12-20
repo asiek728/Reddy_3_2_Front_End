@@ -10,7 +10,6 @@ function App() {
 
   const { user } = useAuthContext()
 
-
   // will fix this tomorrow - needs to have login/sign up page to start
   // maybe access to different pages idk - then has section for note cards and forum etc 
   // will need user ? Login : Home     !user ? Home : login

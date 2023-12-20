@@ -7,6 +7,7 @@ const NewFlashCardFormPage = () => {
     const [inputFrontText, setInputFrontText] = useState('')
     const [inputBackText, setInputBackText] = useState('')
     const [cardCount, setCardCount] = useState('')
+    const [message, setMessage] = useState("")
     const id = useParams()
 
     useEffect(() => {
@@ -76,6 +77,10 @@ const NewFlashCardFormPage = () => {
             `http://localhost:3000/flashStacks/${id.id}`,
             options
         );
+        setMessage("Card Added")
+        setTimeout(()=>{
+            setMessage("")
+        },4000)
     }
 
     return (
@@ -89,6 +94,7 @@ const NewFlashCardFormPage = () => {
 
                 <input value={inputBackText} type="text" id="backFlashCard" className="flashCardInput" onChange={handleInputBackText} />
                 <button type="submit" className="flashCardButton">Add</button>
+                <p>{message}</p>
             </form>
         </div>
     )

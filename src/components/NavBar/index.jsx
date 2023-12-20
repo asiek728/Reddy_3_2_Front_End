@@ -20,7 +20,7 @@ const NavBar = () => {
                 <nav>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/flashStacks">Flashcards</NavLink>
-                    <NavLink to="/comments">Forum</NavLink>
+                    <NavLink to="/thread">Forum</NavLink>
                     {user && (
                         <div>
                         <span>{user.email}</span>
