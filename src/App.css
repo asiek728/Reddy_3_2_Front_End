@@ -40,6 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+.stacksContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
 
 nav > a {
