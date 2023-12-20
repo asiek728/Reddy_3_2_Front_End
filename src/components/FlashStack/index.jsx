@@ -44,7 +44,6 @@ const FlashStack = ({ stack }) => {
           <button>Add card</button>
         </Link>
       <button onClick={changeDeleting}>Remove Stack</button>
-        <button onClick={destroyStack}>Remove Stack</button>
       </div>
       )}
     </>
