@@ -35,7 +35,7 @@ const FlashStacksPage = () => {
     <>
       <h1>Your flashcard stacks</h1>
       <StackForm topic={topic} setTopic={setTopic}/>
-      <div className='stacksDiv'>
+      <div className='stacksContainer'>
         {stacks.map(stack => (
             <FlashStack stack={stack} key={stack._id} />
         ))
