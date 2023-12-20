@@ -34,16 +34,15 @@ const FlashStacksPage = () => {
 
   return (
     <>
-      <h1>Your flashcard stacks</h1>
-      <StackForm topic={topic} setTopic={setTopic}/>
-      <div className='stacksContainer'>
-        {stacks.map(stack => (
-            <FlashStack stack={stack} key={stack._id} />
-        ))
-        }
-      </div>
-
-    </>
+        <h1>Your flashcard stacks</h1>
+        <StackForm topic={topic} setTopic={setTopic}/>
+        <div className='stacksContainer'>
+          {stacks.map(stack => (
+              <FlashStack stack={stack} key={stack._id} />
+          ))
+          }
+        </div>
+      </>
   )
 }
 
