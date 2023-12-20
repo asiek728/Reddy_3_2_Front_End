@@ -1,17 +1,28 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
+import './style.css'
 import './StackStyle.css'
 import { Link } from 'react-router-dom'
 import axios from "axios"
-import {CheckDelete} from "../../components"
+import { CheckDelete } from "../../components"
 import { useAuthContext } from "../../hooks/useAuthContext"
 
 const FlashStack = ({ stack }) => {
   const [deleting, setDeleting] = useState(false)
-
   const { user } = useAuthContext()
+  const [date, setDate] = useState("")
+  const [loading, setLoading] = useState(true);
 
-  function changeDeleting(){
+  useEffect(() => {
+    translateTimer()
+  }, [loading, stack])
+
+  function changeDeleting() {
     setDeleting(!deleting)
+  }
+
+  function translateTimer() {
+    let today = stack.stackTimer.slice(0, 10)
+    setDate(today)
   }
 
   async function destroyStack(e) {
@@ -32,12 +43,13 @@ const FlashStack = ({ stack }) => {
 
   return (
     <>
+
       {(deleting ? <CheckDelete destroyStack={destroyStack} deleting={deleting} setDeleting={setDeleting}/>:
       <div role='stackDiv' className='stackDiv'>
         <div className='notepadBand'></div>
         <h2 className='topic'>{stack.topic}</h2>
         <p>{stack.cardCount} cards </p>
-        <p>Revise by: (todo) </p>
+        <p>Revise by: {date} </p>
         <section >
           <Link to={`${stack._id}`} >
             <button className="reviseButton">Revise</button>
