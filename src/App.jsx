@@ -4,7 +4,8 @@ import { Routes, Route, Navigate } from "react-router-dom"
 import { Threads, Entry, Comments, FlashStacksPage, CardsPage, NewFlashCardFormPage, Login, Signup, NotFound } from './pages'
 import { NavBar } from "./components"
 
-import { useAuthContext } from "./hooks/useAuthContext";
+import { useAuthContext } from './hooks/useAuthContext'
+
 
 function App() {
   const { user } = useAuthContext();
