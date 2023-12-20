@@ -15,21 +15,21 @@ const DeleteThread = ({ id, thread, setThread }) => {
 // }, []);
     const { user } = useAuthContext()
 
-    const [token, setToken] = useState([])
+    const [email, setEmail] = useState([])
     
     useEffect(() => {
 
         async function getThread(id){
             const response = await fetch(`http://localhost:3000/threads/${id}`)
             const data = await response.json()
-            setToken(data.Token)
+            setEmail(data.Email)
         }
         getThread(id)    
-    }, [])
+    }, [id])
     
     async function deleteThread(id){
 
-        if (user.token === token){
+        if (user.email === email){
 
             await fetch(`http://localhost:3000/threads/${id}`, {
                 method: "DELETE",
@@ -41,9 +41,10 @@ const DeleteThread = ({ id, thread, setThread }) => {
         }
     }
         
-        return (
-    <button onClick={() => deleteThread(id)}>Delete thread</button>
-  )
+		return user.email === email ? (
+			<button style={{ backgroundColor: 'red', color:'white'}} onClick={() => deleteThread(id)}>Delete thread</button>
+		) : null;
+    
 }
 
 export default DeleteThread

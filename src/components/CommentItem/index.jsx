@@ -6,7 +6,6 @@ import { AddCommentItem, DeleteCommentItem } from '..';
 import { useAuthContext } from "../../hooks/useAuthContext"
 
 
-import { useAuth } from '../../context/ThreadContext';
 
 const CommentItem = () => {
 	const [comment, setComment] = useState([])
@@ -15,6 +14,7 @@ const CommentItem = () => {
 
 	const [input, setInputText] = useState('')
     const [message, setMessage] = useState('')
+	
 
 	
 	let { id } = useParams();
@@ -45,7 +45,6 @@ const CommentItem = () => {
 
 	return (
 		<>
-		<h1>{thread.Question}</h1>
 		<div> 
 			{displayComment()}
 		</div>

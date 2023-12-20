@@ -11,7 +11,7 @@ const AddThread = () => {
 	const [formData, setFormData] = useState({
     Question: "",
     Subject: "",
-    Token: "",
+    Email: "",
   });
 
 
@@ -35,7 +35,7 @@ const AddThread = () => {
 		setFormData((prevData) => ({
 			...prevData,
 			[name]: value,
-      Token:user.token
+      Email:user.email
 		}));
 	};
  
