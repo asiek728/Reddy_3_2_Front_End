@@ -11,24 +11,19 @@ const FlashStack = ({ stack }) => {
     setDeleting(!deleting)
   }
 
-  async function destroyStack(e){
-    console.log(stack._id)
+  async function destroyStack(e) {
     const options = {
       method: "DELETE",
       headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
     }
-
-    }
-    try{
-      const destroy = await fetch(`http://localhost:3000/flashStacks/${stack._id}`,options)
-      console.log("Deleted Stack: "+ stack.topic)
-    }catch(error){
+    try {
+      const destroy = await fetch(`http://localhost:3000/flashStacks/${stack._id}`, options)
+    } catch (error) {
       console.log(error.message)
-      
     }
-
   }
 
   return (
@@ -37,17 +32,19 @@ const FlashStack = ({ stack }) => {
       <div role='stackDiv' className='stackDiv'>
         <h2>{stack.topic} </h2>
         <p>{stack.cardCount} cards </p>
-        <Link to={`${stack._id}`} key={stack._id}>
+        <p>Revise by: (todo) </p>
+
+        <Link to={`${stack._id}`} >
           <button>Test all</button>
         </Link>
 
         <button>Test failed (todo)</button>
 
         <Link to={`${stack._id}/new`} key={stack._id}>
-          <button>Add new flashcard</button>
+          <button>Add card</button>
         </Link>
       <button onClick={changeDeleting}>Remove Stack</button>
-
+        <button onClick={destroyStack}>Remove Stack</button>
       </div>
       )}
     </>
