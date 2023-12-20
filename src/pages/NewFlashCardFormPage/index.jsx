@@ -6,7 +6,7 @@ const NewFlashCardFormPage = () => {
 
     const [inputFrontText, setInputFrontText] = useState('')
     const [inputBackText, setInputBackText] = useState('')
-    const [cardCount, setCardCount] = useState('')
+    let [cardCount, setCardCount] = useState('')
     const [message, setMessage] = useState("")
     const id = useParams()
 
@@ -75,6 +75,8 @@ const NewFlashCardFormPage = () => {
             `http://localhost:3000/flashStacks/${id.id}`,
             options
         );
+        setCardCount(cardCount = cardCount + 1)
+
         setMessage("Card Added")
         setTimeout(()=>{
             setMessage("")
