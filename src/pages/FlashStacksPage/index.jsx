@@ -3,15 +3,18 @@ import axios from 'axios'
 import { FlashStack, StackForm } from '../../components'
 import { useAuthContext } from "../../hooks/useAuthContext"
 import './style.css'
+import { useScore } from '../../context/ScoreContext';
 
 const FlashStacksPage = () => {
 
   const [stacks, setStacks] = useState([])
   const [topic, setTopic] = useState("")
+  const { score, setScore } = useScore()
 
   /////AUTH
   const { user } = useAuthContext()
-
+  setScore(0)
+  
   useEffect(() => {
     const displayStacks = async () => {
       const { data } = await axios.get("http://localhost:3000/flashStacks", {
