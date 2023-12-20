@@ -1,8 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { useAuthContext } from '../../hooks/useAuthContext'
 
 const AddComment = ({ id, input, setInputText, message, setMessage }) => {
+
+    const { user } = useAuthContext()
 
     function handleInput(e) {
         setInputText(e.target.value)
@@ -13,7 +16,7 @@ const AddComment = ({ id, input, setInputText, message, setMessage }) => {
 
         await fetch(`http://localhost:3000/comments`, {
             method: "POST",
-            body: JSON.stringify({ comment: input, ThreadID: id}),
+            body: JSON.stringify({ comment: input, ThreadID: id, Email: user.email}),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
