@@ -20,12 +20,19 @@ const DeleteThread = ({ id, thread, setThread }) => {
     useEffect(() => {
 
         async function getThread(id){
-            const response = await fetch(`http://localhost:3000/threads/${id}`)
+            const response = await fetch(`http://localhost:3000/threads/${id}`, 
+            {
+                headers: {
+                    'Authorization': `Bearer ${user.token}`
+                  }
+            })
             const data = await response.json()
             setEmail(data.Email)
         }
-        getThread(id)    
-    }, [id])
+        if (user){
+            getThread(id)    
+        }
+    }, [id, user])
     
     async function deleteThread(id){
 
@@ -33,7 +40,10 @@ const DeleteThread = ({ id, thread, setThread }) => {
 
             await fetch(`http://localhost:3000/threads/${id}`, {
                 method: "DELETE",
-                headers: { 'Content-Type': 'application/json'}
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${user.token}`
+            }
             })
             
             setThread(thread.filter(c => c._id !== id))

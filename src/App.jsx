@@ -15,15 +15,15 @@ function App() {
         <Route path="/" element={ user ? <NavBar /> : ''}>
           <Route index element={<Entry />} />
           <Route path="/flashStacks">
-            <Route index element={<FlashStacksPage />} />
-            <Route path=":id" element={<CardsPage />} />
+            <Route index element={user ? <FlashStacksPage /> : <Entry/>} />
+            <Route path=":id" element={ user ? <CardsPage /> : <Entry/>} />
           </Route>
           <Route
             path="/flashStacks/:id/new"
-            element={<NewFlashCardFormPage />}
+            element={ user ? <NewFlashCardFormPage /> : <Entry/>}
           />
-            <Route path="/thread" element={<Threads />} />
-            <Route path="/comments/:id" element={<Comments />} />
+            <Route path="/thread" element={ user ? <Threads /> : <Entry/>} />
+            <Route path="/comments/:id" element={user ? <Comments />: <Entry/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound /> }/>
