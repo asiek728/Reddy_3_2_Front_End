@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import { AddThread, FilterThread } from "../index"
 
+import './index.css'
+
 const ThreadsList = ({key}) => {
 	const [thread, setThread] = useState([]);
 	const [filterSubject, setFilterSubject] = useState("")
@@ -46,12 +48,10 @@ const ThreadsList = ({key}) => {
     
   return (
     <>
-		<div>
 		<h1>Threads</h1>
 		<AddThread/>
 		<FilterThread filterSubject={filterSubject} setFilterSubject={setFilterSubject}/>
 			{displayThread()}
-		</div>
     </>
   )
 }
