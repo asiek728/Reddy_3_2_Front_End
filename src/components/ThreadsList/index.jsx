@@ -1,16 +1,19 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
-import { AddThread, FilterThread } from "../index"
+import { Link, useParams } from "react-router-dom";
+import { AddThread, FilterThread, DeleteThread } from "../index"
 import { useAuth } from '../../context/ThreadContext';
+
 
 import './index.css'
 
 const ThreadsList = ({key}) => {
-	const { thread, setThread } = useAuth()
-	// const [thread, setThread] = useState([]);
+
+	
+	const [thread, setThread] = useState([]);
 	const [filterSubject, setFilterSubject] = useState("")
 
+	
 	useEffect(() => {
 	const fetchThreads = async () => {
             const response = await fetch('http://localhost:3000/threads')
@@ -28,6 +31,7 @@ const ThreadsList = ({key}) => {
 					<div key={t._id}>
 						<Link to={`/comments/${t._id}`}>{t.Question}</Link>
 						<p>{t.Subject}</p>
+						<DeleteThread id={t._id} thread={thread} setThread={setThread}/>
 					</div>
 				));
 			} else if (filterSubject === 'showAll') {
@@ -35,6 +39,7 @@ const ThreadsList = ({key}) => {
 					<div key={t._id}>
 						<Link to={`/comments/${t._id}`}>{t.Question}</Link>
 						<p>{t.Subject}</p>
+						<DeleteThread id={t._id} thread={thread} setThread={setThread}/>
 					</div>
 				));
 			} else {
@@ -42,6 +47,7 @@ const ThreadsList = ({key}) => {
 				<div key={t._id}>
 					<p>{t.Subject}</p>
 					<Link to={`/comments/${t._id}`}>{t.Question}</Link>
+					<DeleteThread id={t._id} thread={thread} setThread={setThread}/>
 				</div>
 			));
 			}
