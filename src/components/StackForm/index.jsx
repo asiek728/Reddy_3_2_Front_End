@@ -4,6 +4,7 @@ import axios from "axios"
 // StudentID, topic, cardCount, stackTimer 
 
 const StackForm = ({topic, setTopic}) => {
+    console.log(localStorage.getItem("user.email"))
 
     const [text, setText] = useState("")
     const [loadingPOST, setLoadingPOST] = useState(true);
@@ -32,7 +33,7 @@ const StackForm = ({topic, setTopic}) => {
             },
             body: JSON.stringify(
                 {
-                    "StudentID": 1,
+                    "StudentID": localStorage.getItem("user.email"), //email 
                     "topic": topic,
                     "cardCount": 0,
                     "stackTimer": "1995-10-11T23:00:00.000Z"
@@ -43,6 +44,7 @@ const StackForm = ({topic, setTopic}) => {
             `http://localhost:3000/flashStacks`,
             options
         );
+        setText("")
         setMessage("Added: "+topic)
         setTimeout(()=>{
             setMessage("")
@@ -53,7 +55,7 @@ const StackForm = ({topic, setTopic}) => {
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="topic">Topic: </label>
-            <input value={text} type="text" onChange={handleChange} placeholder="History"/>
+            <input value={text} type="text" onChange={handleChange} placeholder={topic}/>
             <button type="submit" className="addStackButton">Add</button>
             <p>{message}</p>
         </form>
