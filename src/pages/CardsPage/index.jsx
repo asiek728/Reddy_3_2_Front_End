@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Card } from "../../components"
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
+import { useAuthContext } from "../../hooks/useAuthContext"
 
 import axios from 'axios'
 
@@ -10,15 +11,22 @@ const CardsPage = () => {
   const [cardIncrement, setCardIncrement] = useState(0)
   const id = useParams()
   const [loading, setLoading] = useState(true);
+  const { user } = useAuthContext()
 
   useEffect(() => {
     const fetchCards = async () => {
-      const { data } = await axios.get(`http://localhost:3000/flashCards/${id.id}`)
+      const { data } = await axios.get(`http://localhost:3000/flashCards/${id.id}`, {
+        headers: {
+          'Authorization': `Bearer ${user.token}`
+        }
+      })
       setCards(data)
       setLoading(false)
     }
-    fetchCards()
-  }, [cards])
+    if (user) {
+      fetchCards(user)
+    }
+  }, [cards, user])
 
   function displayCards() {
     return (

@@ -1,15 +1,19 @@
 import React from 'react'
 import { useState } from 'react';
-import { useAuthContext } from '../../hooks/useAuthContext';
+import { useAuthContext } from "../../hooks/useAuthContext"
 
 const AddThread = () => {
 
   const { user } = useAuthContext()
 
+  // const [token , SetToken] = useState(user.token);
+
 	const [formData, setFormData] = useState({
     Question: "",
     Subject: "",
+    Token: "",
   });
+
 
 	const subjectOptions = [
     { value: 'Maths', label: 'Maths' },
@@ -31,8 +35,10 @@ const AddThread = () => {
 		setFormData((prevData) => ({
 			...prevData,
 			[name]: value,
+      Token:user.token
 		}));
 	};
+ 
 
 	const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,6 +62,8 @@ const AddThread = () => {
     }
 		window.location.reload()
   };
+
+  //console.log(formData)
 
 	return (
 		<>

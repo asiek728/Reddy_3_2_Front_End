@@ -1,6 +1,7 @@
 export { default as ThreadsList } from "../components/ThreadsList"
 export { default as CommentItem } from "../components/CommentItem"
 export {default as AddThread} from "../components/AddThread"
+export { default as DeleteThread } from "./DeleteThread"
 export {default as FlashStack} from "./FlashStack"
 export {default as Card} from "./Card"
 export {default as PassedButtons} from "./PassedButtons"

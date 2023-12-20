@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { NavLink, Outlet } from 'react-router-dom'
 import "./NavBar.css"
-
+import './style.css'
 import { useLogout } from '../../hooks/useLogout'
 import { useAuthContext } from '../../hooks/useAuthContext'
 

@@ -3,9 +3,12 @@ import './StackStyle.css'
 import { Link } from 'react-router-dom'
 import axios from "axios"
 import {CheckDelete} from "../../components"
+import { useAuthContext } from "../../hooks/useAuthContext"
 
 const FlashStack = ({ stack }) => {
   const [deleting, setDeleting] = useState(false)
+
+  const { user } = useAuthContext()
 
   function changeDeleting(){
     setDeleting(!deleting)
@@ -16,7 +19,8 @@ const FlashStack = ({ stack }) => {
       method: "DELETE",
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user.token}`
       }
     }
     try {
