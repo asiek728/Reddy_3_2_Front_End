@@ -1,8 +1,12 @@
 import React from 'react'
 import './style.css'
+import { useAuthContext } from "../../hooks/useAuthContext"
 
 const PassedButtons = ({ cardIncrement, setCardIncrement, card }) => {
+    const { user } = useAuthContext()
+    
     async function updatePass() {
+
 
         setCardIncrement(cardIncrement + 1)
 
@@ -10,7 +14,8 @@ const PassedButtons = ({ cardIncrement, setCardIncrement, card }) => {
             method: "PATCH",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             },
             body: JSON.stringify({
                 passed: true
@@ -31,7 +36,8 @@ const PassedButtons = ({ cardIncrement, setCardIncrement, card }) => {
             method: "PATCH",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             },
             body: JSON.stringify({
                 passed: false

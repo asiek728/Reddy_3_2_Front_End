@@ -3,20 +3,29 @@ import { useParams } from 'react-router'
 import PassedButtons from '../PassedButtons'
 import './style.css'
 import axios from 'axios'
+import { useAuthContext } from "../../hooks/useAuthContext"
 
 const Card = ({ cards, cardIncrement, setCardIncrement }) => {
   const [flip, setFlip] = useState(false)
   const [cardCount, setCardCount] = useState('')
   const id = useParams()
 
+  const { user } = useAuthContext()
+
   useEffect(() => {
     const displayCardsNo = async () => {
-      const { data } = await axios.get(`http://localhost:3000/flashStacks/${id.id}`)
+      const { data } = await axios.get(`http://localhost:3000/flashStacks/${id.id}`,{
+        headers: {
+          'Authorization': `Bearer ${user.token}`
+        }
+    })
       setCardCount(data.cardCount - 1)
       console.log("myyyy" , data)
+    } 
+    if (user) {
+      displayCardsNo(user)
     }
-    displayCardsNo()
-  }, [])
+  }, [user])
 
 
   function changeSide() {
@@ -28,7 +37,8 @@ const Card = ({ cards, cardIncrement, setCardIncrement }) => {
       method: "DELETE",
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user.token}`
       }
     }
     try {
@@ -47,7 +57,8 @@ const Card = ({ cards, cardIncrement, setCardIncrement }) => {
       method: "PATCH",
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user.token}`
       },
       body: JSON.stringify({
         "cardCount": cardCount
