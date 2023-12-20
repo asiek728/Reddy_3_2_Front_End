@@ -38,6 +38,8 @@ const NewFlashCardFormPage = () => {
         const options = {
             method: "POST",
             headers: {
+                ////AUTH
+                // 'Authorization': `Bearer ${user.token}`,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
