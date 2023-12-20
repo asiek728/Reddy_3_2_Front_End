@@ -1,17 +1,27 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import './style.css'
 import { Link } from 'react-router-dom'
 import axios from "axios"
-import {CheckDelete} from "../../components"
+import { CheckDelete } from "../../components"
 import { useAuthContext } from "../../hooks/useAuthContext"
 
 const FlashStack = ({ stack }) => {
   const [deleting, setDeleting] = useState(false)
-
   const { user } = useAuthContext()
+  const [date, setDate] = useState("")
+  const [loading, setLoading] = useState(true);
 
-  function changeDeleting(){
+  useEffect(() => {
+    translateTimer()
+  }, [loading, stack])
+
+  function changeDeleting() {
     setDeleting(!deleting)
+  }
+
+  function translateTimer() {
+    let today = stack.stackTimer.slice(0, 10)
+    setDate(today)
   }
 
   async function destroyStack(e) {
@@ -30,25 +40,27 @@ const FlashStack = ({ stack }) => {
     }
   }
 
+
+
   return (
     <>
-      {(deleting ? <CheckDelete destroyStack={destroyStack} deleting={deleting} setDeleting={setDeleting}/>:
-      <div role='stackDiv' className='stackDiv'>
-        <h2>{stack.topic} </h2>
-        <p>{stack.cardCount} cards </p>
-        <p>Revise by: (todo) </p>
+      {(deleting ? <CheckDelete destroyStack={destroyStack} deleting={deleting} setDeleting={setDeleting} /> :
+        <div role='stackDiv' className='stackDiv'>
+          <h2>{stack.topic} </h2>
+          <p>{stack.cardCount} cards </p>
+          <p>Revise by: {date} </p>
 
-        <Link to={`${stack._id}`} >
-          <button>Test all</button>
-        </Link>
+          <Link to={`${stack._id}`} >
+            <button>Test all</button>
+          </Link>
 
-        <button>Test failed (todo)</button>
+          <button>Test failed (todo)</button>
 
-        <Link to={`${stack._id}/new`} key={stack._id}>
-          <button>Add card</button>
-        </Link>
-      <button onClick={changeDeleting}>Remove Stack</button>
-      </div>
+          <Link to={`${stack._id}/new`} key={stack._id}>
+            <button>Add card</button>
+          </Link>
+          <button onClick={changeDeleting}>Remove Stack</button>
+        </div>
       )}
     </>
   )

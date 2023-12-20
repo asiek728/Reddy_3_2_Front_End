@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import { useAuthContext } from "../../hooks/useAuthContext"
+import { useTimer } from '../../context/TimerContext'
 
 // StudentID, topic, cardCount, stackTimer 
 
@@ -9,6 +10,7 @@ const StackForm = ({ topic, setTopic }) => {
     const [text, setText] = useState("")
     const [loadingPOST, setLoadingPOST] = useState(true);
     const [message, setMessage] = useState("")
+    const { timer, setTimer } = useTimer()
 
     /////AUTH
     const { user } = useAuthContext()
@@ -28,6 +30,9 @@ const StackForm = ({ topic, setTopic }) => {
     }
 
     async function createNewStack(e) {
+        const today = new Date();
+        setTimer(today)
+
         const options = {
             method: "POST",
             headers: {
@@ -40,7 +45,7 @@ const StackForm = ({ topic, setTopic }) => {
                     "StudentID": user.email,
                     "topic": topic,
                     "cardCount": 0,
-                    "stackTimer": "1995-10-11T23:00:00.000Z"
+                    "stackTimer": today
                 })
 
         }

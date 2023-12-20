@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from "react-router-dom"
 import { AuthProvider } from './context/AuthContext'
 import { ThreadProvider } from "./context/ThreadContext";
 import { ScoreProvider } from "./context/ScoreContext";
+import { TimerProvider } from "./context/TimerContext.jsx";
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -13,9 +14,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <AuthProvider>
       <ThreadProvider>
         <ScoreProvider>
-          <Router>
-            <App />
-          </Router>
+          <TimerProvider>
+            <Router>
+              <App />
+            </Router>
+          </TimerProvider>
         </ScoreProvider>
       </ThreadProvider>
     </AuthProvider>
