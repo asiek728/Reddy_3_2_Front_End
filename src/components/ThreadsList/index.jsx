@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import { AddThread, FilterThread } from "../index"
+import { useAuthContext } from "../../hooks/useAuthContext"
 
 import './index.css'
 
@@ -9,14 +10,22 @@ const ThreadsList = ({key}) => {
 	const [thread, setThread] = useState([]);
 	const [filterSubject, setFilterSubject] = useState("")
 
+	const { user } = useAuthContext()
+
 	useEffect(() => {
 	const fetchThreads = async () => {
-            const response = await fetch('http://localhost:3000/threads')
+            const response = await fetch('http://localhost:3000/threads', {
+                headers: {
+                  'Authorization': `Bearer ${user.token}`
+                }
+			})
             const data = await response.json()
             setThread(data)
         }
-        fetchThreads()
-	},[])
+		if (user){
+			fetchThreads(user)
+		}
+	},[user])
 
 	
 		const displayThread = () => {
