@@ -1,0 +1,27 @@
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  div {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+  }
+  
+  div a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  div a:hover {
+    text-decoration: underline;
+  }
+  
+  p {
+    color: #666;
+    margin-top: 5px;
+  }

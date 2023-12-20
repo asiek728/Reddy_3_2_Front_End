@@ -10,3 +10,6 @@ export {default as FilterThread } from "./FilterThread"
 export { default as AddCommentItem } from "./AddCommentItem"
 export { default as DeleteCommentItem } from "./DeleteCommentItem"
 export {default as CheckDelete} from "./CheckDelete"
+export { default as Login } from "./Login"
+
+export { default as Signup } from "./Signup"
