@@ -1,14 +1,24 @@
 import React from 'react'
-import { Login, Signup } from '../../pages'
+import { Login } from '../../pages'
 import { useAuthContext } from '../../hooks/useAuthContext'
 
 const Entry = () => {
 
-  const { user } = useAuthContext()
+  const { user } = useAuthContext();
 
   return (
     <>
-    <div>Welcome</div>
+      {
+        !user && 
+        <>
+        <div>Welcome</div>
+        <Login />
+        </>
+      }
+
+      {
+        user && <div>Testing - now logged in!</div>
+      }
     </>
 
   )
