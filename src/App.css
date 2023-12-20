@@ -44,13 +44,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  background-color: rgb(86, 209, 100);
 }
 
 
-nav > a {
-  margin-right: 0.5rem;
-  color: var(--text);
-}
+
 
 header, footer, main {
   padding: 1rem;

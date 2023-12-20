@@ -4,24 +4,24 @@ import PassedButtons from '../PassedButtons'
 import './style.css'
 import axios from 'axios'
 import { useAuthContext } from "../../hooks/useAuthContext"
+import { useScore } from '../../context/ScoreContext';
 
 const Card = ({ cards, cardIncrement, setCardIncrement }) => {
-  const [flip, setFlip] = useState(false)
+  const [flip, setFlip] = useState(true)
   const [cardCount, setCardCount] = useState('')
   const id = useParams()
-
+  const { score, setScore } = useScore()
   const { user } = useAuthContext()
 
   useEffect(() => {
     const displayCardsNo = async () => {
-      const { data } = await axios.get(`http://localhost:3000/flashStacks/${id.id}`,{
+      const { data } = await axios.get(`http://localhost:3000/flashStacks/${id.id}`, {
         headers: {
           'Authorization': `Bearer ${user.token}`
         }
-    })
+      })
       setCardCount(data.cardCount - 1)
-      console.log("myyyy" , data)
-    } 
+    }
     if (user) {
       displayCardsNo(user)
     }
@@ -87,7 +87,7 @@ const Card = ({ cards, cardIncrement, setCardIncrement }) => {
           :
           <>
             <p style={{ marginTop: "100px", fontSize: "60px" }}>No more cards left</p>
-            <p style={{ marginTop: "100px", fontSize: "60px" }}>Score: </p>
+            <p style={{ marginTop: "100px", fontSize: "60px" }}>Score: {score} / {cardCount+1}</p>
           </>
       }
     </>

@@ -10,6 +10,7 @@ function App() {
 
   return (
     <>
+      <div className='backgroundContainer'></div>
       <Routes>
         <Route path="/" element={ user ? <NavBar /> : ''}>
           <Route index element={<Entry />} />

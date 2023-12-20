@@ -1,14 +1,16 @@
 import React from 'react'
 import './style.css'
 import { useAuthContext } from "../../hooks/useAuthContext"
+import { useScore } from '../../context/ScoreContext';
 
 const PassedButtons = ({ cardIncrement, setCardIncrement, card }) => {
     const { user } = useAuthContext()
-    
+    const { score, setScore } = useScore()
+
     async function updatePass() {
 
-
         setCardIncrement(cardIncrement + 1)
+        setScore(score + 1)
 
         const options = {
             method: "PATCH",
