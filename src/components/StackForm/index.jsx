@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import { useAuthContext } from "../../hooks/useAuthContext"
 
+// StudentID, topic, cardCount, stackTimer 
+
 const StackForm = ({ topic, setTopic }) => {
 
     const [text, setText] = useState("")
@@ -46,6 +48,7 @@ const StackForm = ({ topic, setTopic }) => {
             `http://localhost:3000/flashStacks`,
             options
         );
+        setText("")
         setMessage("Added: " + topic)
         setTimeout(() => {
             setMessage("")
@@ -56,7 +59,7 @@ const StackForm = ({ topic, setTopic }) => {
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="topic">Topic: </label>
-            <input value={text} type="text" onChange={handleChange} placeholder="History" />
+            <input value={text} type="text" onChange={handleChange} placeholder={topic}/>
             <button type="submit" className="addStackButton">Add</button>
             <p>{message}</p>
         </form>
