@@ -3,7 +3,7 @@ import './style.css'
 import { useAuthContext } from "../../hooks/useAuthContext"
 import { useScore } from '../../context/ScoreContext';
 
-const PassedButtons = ({ cardIncrement, setCardIncrement, card }) => {
+const PassedButtons = ({ cardIncrement, setCardIncrement, card}) => {
     const { user } = useAuthContext()
     const { score, setScore } = useScore()
 
