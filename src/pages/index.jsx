@@ -6,4 +6,4 @@ export {default as CardsPage} from "./CardsPage"
 export {default as NewFlashCardFormPage} from "./NewFlashCardFormPage"
 export {default as Login} from "./Login"
 export {default as Signup} from "./Signup"
-
+export {default as NotFound} from "./NotFound"
