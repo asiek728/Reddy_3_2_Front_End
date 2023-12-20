@@ -1,9 +1,24 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router'
 import PassedButtons from '../PassedButtons'
 import './style.css'
+import axios from 'axios'
 
 const Card = ({ cards, cardIncrement, setCardIncrement }) => {
   const [flip, setFlip] = useState(false)
+  const [cardCount, setCardCount] = useState('')
+  const id = useParams()
+
+  useEffect(() => {
+    const displayCardsNo = async () => {
+      const { data } = await axios.get(`http://localhost:3000/flashStacks/${id.id}`)
+      setCardCount(data.cardCount - 1)
+      console.log("myyyy" , data)
+    }
+    displayCardsNo()
+  }, [])
+
+
   function changeSide() {
     setFlip(!flip)
   }
@@ -23,6 +38,26 @@ const Card = ({ cards, cardIncrement, setCardIncrement }) => {
     } catch (error) {
       console.log(error.message)
     }
+    await decreaseStackCardsNumber()
+  }
+
+
+  async function decreaseStackCardsNumber() {
+    const options = {
+      method: "PATCH",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "cardCount": cardCount
+      })
+    }
+
+    const response = await fetch(
+      `http://localhost:3000/flashStacks/${id.id}`,
+      options
+    );
   }
 
   return (
