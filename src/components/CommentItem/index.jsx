@@ -16,7 +16,7 @@ const CommentItem = () => {
 	const [input, setInputText] = useState('')
     const [message, setMessage] = useState('')
 
-	const { thread } = useAuth()
+	
 	let { id } = useParams();
 
 	useEffect(() => {
