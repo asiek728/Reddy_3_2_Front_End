@@ -20,8 +20,11 @@ h1 {
   div a:hover {
     text-decoration: underline;
   }
-  
-  p {
-    color: #666;
-    margin-top: 5px;
+
+  div p {
+    color: #888;
+    font-style: italic;
+    margin-top: 8px;
   }
+  
+  
