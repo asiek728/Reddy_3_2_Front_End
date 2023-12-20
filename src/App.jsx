@@ -16,6 +16,7 @@ function App() {
 
   return (
     <>
+      <div className='backgroundContainer'></div>
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<Entry />} />

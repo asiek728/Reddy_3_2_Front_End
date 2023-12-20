@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './style.css'
+import './StackStyle.css'
 import { Link } from 'react-router-dom'
 import axios from "axios"
 import {CheckDelete} from "../../components"
@@ -30,20 +30,20 @@ const FlashStack = ({ stack }) => {
     <>
       {(deleting ? <CheckDelete destroyStack={destroyStack} deleting={deleting} setDeleting={setDeleting}/>:
       <div role='stackDiv' className='stackDiv'>
-        <h2>{stack.topic} </h2>
+        <div className='notepadBand'></div>
+        <h2 className='topic'>{stack.topic}</h2>
         <p>{stack.cardCount} cards </p>
         <p>Revise by: (todo) </p>
-
-        <Link to={`${stack._id}`} >
-          <button>Test all</button>
-        </Link>
-
-        <button>Test failed (todo)</button>
+        <section >
+          <Link to={`${stack._id}`} >
+            <button className="reviseButton">Revise</button>
+          </Link>
+        </section>
 
         <Link to={`${stack._id}/new`} key={stack._id}>
-          <button>Add card</button>
+          <button className='addRemove'>Add card</button>
         </Link>
-      <button onClick={changeDeleting}>Remove Stack</button>
+      <button onClick={changeDeleting} className='addRemove'>Remove Stack</button>
       </div>
       )}
     </>
