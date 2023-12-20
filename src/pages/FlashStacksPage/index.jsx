@@ -9,6 +9,7 @@ const FlashStacksPage = () => {
 
 
   useEffect(() => {
+    console.log(new.date())
     const displayStacks = async () => {
       const { data } = await axios.get("http://localhost:3000/flashStacks")
       setStacks(data)
