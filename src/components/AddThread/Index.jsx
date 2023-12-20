@@ -6,10 +6,14 @@ const AddThread = () => {
 
   const { user } = useAuthContext()
 
+  // const [token , SetToken] = useState(user.token);
+
 	const [formData, setFormData] = useState({
     Question: "",
     Subject: "",
+    Email: "",
   });
+
 
 	const subjectOptions = [
     { value: 'Maths', label: 'Maths' },
@@ -31,8 +35,10 @@ const AddThread = () => {
 		setFormData((prevData) => ({
 			...prevData,
 			[name]: value,
+      Email:user.email
 		}));
 	};
+ 
 
 	const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,6 +62,8 @@ const AddThread = () => {
     }
 		window.location.reload()
   };
+
+  //console.log(formData)
 
 	return (
 		<>

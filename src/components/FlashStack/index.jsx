@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './style.css'
+import './StackStyle.css'
 import { Link } from 'react-router-dom'
 import axios from "axios"
 import { CheckDelete } from "../../components"
@@ -40,27 +41,26 @@ const FlashStack = ({ stack }) => {
     }
   }
 
-
-
   return (
     <>
-      {(deleting ? <CheckDelete destroyStack={destroyStack} deleting={deleting} setDeleting={setDeleting} /> :
-        <div role='stackDiv' className='stackDiv'>
-          <h2>{stack.topic} </h2>
-          <p>{stack.cardCount} cards </p>
-          <p>Revise by: {date} </p>
 
+      {(deleting ? <CheckDelete destroyStack={destroyStack} deleting={deleting} setDeleting={setDeleting}/>:
+      <div role='stackDiv' className='stackDiv'>
+        <div className='notepadBand'></div>
+        <h2 className='topic'>{stack.topic}</h2>
+        <p>{stack.cardCount} cards </p>
+        <p>Revise by: {date} </p>
+        <section >
           <Link to={`${stack._id}`} >
-            <button>Test all</button>
+            <button className="reviseButton">Revise</button>
           </Link>
+        </section>
 
-          <button>Test failed (todo)</button>
-
-          <Link to={`${stack._id}/new`} key={stack._id}>
-            <button>Add card</button>
-          </Link>
-          <button onClick={changeDeleting}>Remove Stack</button>
-        </div>
+        <Link to={`${stack._id}/new`} key={stack._id}>
+          <button className='addRemove'>Add card</button>
+        </Link>
+      <button onClick={changeDeleting} className='addRemove'>Remove Stack</button>
+      </div>
       )}
     </>
   )
