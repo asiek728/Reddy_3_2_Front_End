@@ -39,7 +39,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #563d7c;
+  color: #FBA100;
 }
 
 body {
@@ -115,8 +115,20 @@ label{
 #threadItem{
   background-color: #36454f;
 }
-#threadItem p{
+#threadItem p {
   color: #FFFBD6;
+  font-size: large;
+
+}
+#threadItem a{
+  color: #FFFBD6;
+}
+#threadItem button{
+  font-size: large;
+}
+#threadItem a:hover{
+  color: #FBA100;
+  text-decoration: none;
 }
 
 #commentItem{
@@ -124,6 +136,7 @@ label{
 }
 #commentItem p{
   color: #FFFBD6;
+  font-size: large;
 }
 
 #newUpdatePopup{
@@ -140,8 +153,7 @@ label{
 }
 
 #flashcardTest h1{
-  color: #FFFBD6
-  ;
+  color: #FFFBD6;
 }
 
 .homePageDiv p{
@@ -168,5 +180,20 @@ label{
   padding: 1% 5%;
   color: #b6dbe2;
   font-weight: none !important;
+}
 
+.userDisplay button{
+background-color: #b6dbe2;
+}
+
+#commentBox{
+  width: 40vw;
+  height: 20vh;
+  border-radius: 10px;
+  font-size: large;
+}
+
+#commentSubmit{
+  color: #36454f;
+  background-color: #FBA100;
 }

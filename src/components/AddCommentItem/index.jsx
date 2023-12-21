@@ -42,7 +42,15 @@ const AddComment = ({ id, input, setInputText, message, setMessage }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-        <input placeholder='Add comment' value={input} onChange={handleInput}/>
+
+        <textarea             
+            id = "commentBox" 
+            cols="40" 
+            rows="5" 
+            placeholder='Add comment' 
+            value={input} 
+            onChange={handleInput}>
+        </textarea>
         <button type='submit'>Submit</button>
         <p>{message}</p>
     </form>
