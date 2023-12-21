@@ -36,7 +36,7 @@ const CommentItem = () => {
 
 	const displayComment = () => {
 		return comment.map(c => (
-			<div key={c._id}>
+			<div key={c._id} id="commentItem">
 				<p>{c.comment}</p>
 				<DeleteCommentItem id={id} setComment={setComment} comment={comment}/>
 			</div>

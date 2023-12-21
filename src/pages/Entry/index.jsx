@@ -7,11 +7,11 @@ const Entry = () => {
   const { user } = useAuthContext();
 
   return (
-    <>
+    <div id='Home'>
       {
         !user && 
         <>
-        <div>Welcome</div>
+        <div id="welcome"> Welcome to your notes</div>
         <Login />
         </>
       }
@@ -19,7 +19,7 @@ const Entry = () => {
       {
         user && <div>Testing - now logged in!</div>
       }
-    </>
+    </div>
 
   )
 }

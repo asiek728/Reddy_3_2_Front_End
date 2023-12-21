@@ -4,12 +4,12 @@ import { CommentItem } from '../../components'
 const Comments = () => {
 
   return (
-    <>
-    <h1 role='title'>Comments</h1>
-    <div role='div'>
-    <CommentItem />
+    <div id='comments'>
+      <h1 role='title'>Comments</h1>
+      <div role='div'>
+        <CommentItem />
+      </div>
     </div>
-    </>
       
 
   )
