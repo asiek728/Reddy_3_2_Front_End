@@ -8,12 +8,12 @@ const Entry = () => {
   const { user } = useAuthContext();
 
   return (
-    <>
+    <div id='Home'>
       {
         !user &&
         <>
-          <div>Welcome</div>
-          <Login />
+        <div id="welcome"> Welcome to your notes</div>
+        <Login />
         </>
       }
 
@@ -45,7 +45,7 @@ const Entry = () => {
           </div>
         </div>
       }
-    </>
+    </div>
 
   )
 }

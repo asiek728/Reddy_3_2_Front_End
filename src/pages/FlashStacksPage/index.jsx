@@ -33,7 +33,7 @@ const FlashStacksPage = () => {
   }, [stacks, user, topic]) 
 
   return (
-    <>
+    <div id='flashStack'>
         <h1>Your flashcard stacks</h1>
         <StackForm topic={topic} setTopic={setTopic}/>
         <div className='stacksContainer'>
@@ -42,7 +42,7 @@ const FlashStacksPage = () => {
           ))
           }
         </div>
-      </>
+      </div>
   )
 }
 

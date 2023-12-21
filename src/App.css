@@ -12,10 +12,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #6C648B);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #FBA100);
 }
 
 @keyframes logo-spin {
@@ -40,15 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+
 .stacksContainer{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-color: rgb(86, 209, 100);
+  background-color: #36454f;
 }
-
-
-
 
 header, footer, main {
   padding: 1rem;

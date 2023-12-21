@@ -52,7 +52,7 @@ const DeleteThread = ({ id, thread, setThread }) => {
     }
         
 		return user.email === email ? (
-			<button style={{ backgroundColor: 'red', color:'white'}} onClick={() => deleteThread(id)}>Delete thread</button>
+			<button style={{ backgroundColor: 'red', color:'black'}} onClick={() => deleteThread(id)}>Delete thread</button>
 		) : null;
     
 }
