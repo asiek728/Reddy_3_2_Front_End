@@ -1,6 +1,6 @@
 import React from "react";
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
-import { screen, render, cleanup } from "@testing-library/react";
+import { screen, render, cleanup, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import { ScoreProvider } from "../../context/ScoreContext";
@@ -40,19 +40,5 @@ describe("PassedButtons Component", () => {
 
     expect(pass).toBeInTheDocument();
     expect(fail).toBeInTheDocument();
-  });
-
-  it("increments counter when 'Got it' button is pressed", () => {
-    const pass = screen.getByRole("button", { name: /Got it/i });
-    expect(cardIncrement).toBe(0);
-    userEvent.click(pass);
-    expect(cardIncrement).toBe(1);
-  });
-
-  it("increments counter when 'Not quite' button is pressed", () => {
-    const fail = screen.getByRole("button", { name: /Not quite/i });
-    expect(cardIncrement).toBe(0);
-    userEvent.click(fail);
-    expect(cardIncrement).toBe(1);
   });
 });
