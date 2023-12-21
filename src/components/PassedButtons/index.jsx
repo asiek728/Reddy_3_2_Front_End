@@ -1,63 +1,65 @@
-import React from 'react'
-import './style.css'
-import { useAuthContext } from "../../hooks/useAuthContext"
-import { useScore } from '../../context/ScoreContext';
+import React from "react";
+import "./style.css";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { useScore } from "../../context/ScoreContext";
 
-const PassedButtons = ({ cardIncrement, setCardIncrement, card}) => {
-    const { user } = useAuthContext()
-    const { score, setScore } = useScore()
+const PassedButtons = ({ cardIncrement, setCardIncrement, card }) => {
+  const { user } = useAuthContext();
+  const { score, setScore } = useScore();
 
-    async function updatePass() {
+  async function updatePass() {
+    setCardIncrement(cardIncrement + 1);
+    setScore(score + 1);
 
-        setCardIncrement(cardIncrement + 1)
-        setScore(score + 1)
+    const options = {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+      body: JSON.stringify({
+        passed: true,
+      }),
+    };
 
-        const options = {
-            method: "PATCH",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${user.token}`
-            },
-            body: JSON.stringify({
-                passed: true
-            })
-        }
+    const response = await fetch(
+      `http://localhost:3000/flashCards/${card["_id"]}`,
+      options
+    );
+  }
 
-        const response = await fetch(
-            `http://localhost:3000/flashCards/${card['_id']}`,
-            options
-        );
-    }
+  async function updateFail() {
+    setCardIncrement(cardIncrement + 1);
 
-    async function updateFail() {
+    const options = {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+      body: JSON.stringify({
+        passed: false,
+      }),
+    };
 
-        setCardIncrement(cardIncrement + 1)
+    const response = await fetch(
+      `http://localhost:3000/flashCards/${card["_id"]}`,
+      options
+    );
+  }
 
-        const options = {
-            method: "PATCH",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${user.token}`
-            },
-            body: JSON.stringify({
-                passed: false
-            })
-        }
+  return (
+    <>
+      <button className="passButton" onClick={updatePass}>
+        Got it
+      </button>
+      <button className="failButton" onClick={updateFail}>
+        Not quite
+      </button>
+    </>
+  );
+};
 
-        const response = await fetch(
-            `http://localhost:3000/flashCards/${card['_id']}`,
-            options
-        );
-    }
-
-    return (
-        <>
-            <button className='passButton' onClick={updatePass}>Got it</button>
-            <button className='failButton' onClick={updateFail}>Not quite</button>
-        </>
-    )
-}
-
-export default PassedButtons
+export default PassedButtons;
