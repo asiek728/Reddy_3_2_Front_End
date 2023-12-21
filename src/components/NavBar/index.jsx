@@ -18,10 +18,13 @@ const NavBar = () => {
     return (
         <main>
             <header>
-                <nav className='links'>
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/flashStacks">Flashcards</NavLink>
-                    <NavLink to="/thread">Forum</NavLink>
+                <nav>
+                    <img className='logoImg' src="../../../src/assets/favicon.png" alt="pic" />
+                    <section  className='links'>
+                    <NavLink to="/" className='navLinks'>Home</NavLink>
+                    <NavLink to="/flashStacks" className='navLinks'>Flashcards</NavLink>
+                    <NavLink to="/thread" className='navLinks'>Forum</NavLink>
+                    </section>
                     {user && (
                         <div className='userDisplay'>
                         <span>{user.email}</span>
