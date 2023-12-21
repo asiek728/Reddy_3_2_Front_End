@@ -24,7 +24,7 @@ const FilterThread = ({ filterSubject, setFilterSubject }) => {
 
 	return (
 		<div>
-		 <label>
+		 <label id="threadFilter">
         Filter By Subject:
         <select name="Subject" onChange={handleChange}>
   				{subjectOptions.map((option) => (

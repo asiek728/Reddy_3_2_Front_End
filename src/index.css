@@ -94,6 +94,7 @@ label{
 
 #comments{
   background-color: #b6dbe2;
+  margin-top: 5%;
 }
 
 #welcome{
@@ -106,6 +107,16 @@ label{
 
 .error{
   border: 2px solid #800020;
+  background-color: #36454f;
+  color: #FFFBD6 ;
+  font-size: x-large;
+}
+
+#errorSignup{
+  border: 2px solid #800020;
+  background-color: #36454f;
+  color: #FFFBD6 ;
+  font-size: x-large;
 }
 
 .addStackButton{
@@ -128,6 +139,10 @@ label{
 }
 #threadItem a:hover{
   color: #FBA100;
+  text-decoration: none;
+}
+
+.links a:hover{
   text-decoration: none;
 }
 
@@ -157,7 +172,8 @@ label{
 }
 
 .homePageDiv p{
-  color: #FFFBD6
+  color: #FFFBD6;
+  font-size: x-large;
 }
 
 #intro{
@@ -183,7 +199,13 @@ label{
 }
 
 .userDisplay button{
-background-color: #b6dbe2;
+background-color: #FBA100;
+color: #36454f;
+font-size: large;
+}
+
+#introH2{
+  font-size: xx-large;
 }
 
 #commentBox{
@@ -196,6 +218,105 @@ background-color: #b6dbe2;
 #commentSubmit{
   color: #36454f;
   background-color: #FBA100;
+}
+
+#addThread{
+  color: #36454f;
+  background-color: #FBA100;
+}
+
+#newFlashCard{
+  color: #36454f;
+  background-color: #FBA100;
+}
+
+#threadQuestion {
+  margin-right: 20px;
+  margin-left: 30px;
+}
+
+#loginButton {
+  color: #36454f;
+  background-color: #FBA100;
+  font-size: large;
+}
+
+.login label{
+  font-size: large;
+}
+
+#formFlashCard{
+  font-size: large;
+}
+
+.error{
+  font-size: large;
+}
+#signupLink{
+  font-size: large;
+}
+
+.reviseButton{
+  color: #36454f;
+  background-color: #FBA100;
+}
+
+#removeCard{
+  background-color: rgb(202, 67, 67);
+}
+
+#addCard{
+  background-color: rgb(60, 139, 74);
+}
+
+#stackTopic{
+  font-size: large;
+}
+
+#addTopic{
+  color: #36454f;
+  background-color: #FBA100;
+  font-size: x-large;
+}
+
+#flashIntro{
+  color: #FFFBD6;
+  font-size: x-large;
+}
+
+#deleteButton{
+  background-color: rgb(202, 67, 67);
+}
+
+.failButton{
+  background-color: #FBA100;
+  /* font-size: large; */
+}
+
+#dateButton, #signUpBtn{
+  background-color: #FBA100;
+  font-size: large;
+}
+
+.signup label{
+  font-size: x-large;
+}
+
+.login label{
+  font-size: x-large;
+}
+
+#addCardToPile{
+  background-color: #FBA100;
+  font-size: x-large;
+}
+
+#signupLink, #signupBack{
+  background-color: rgb(202, 67, 67);
+  font-size: large;
+}
+button{
+  padding: 10px;
 }
 
 
@@ -211,7 +332,6 @@ input {
   border-radius: 20px;
 }
 
-
 select {
   background-color: #e3edf7;
   border: thin solid rgb(84, 84, 216);
@@ -225,4 +345,24 @@ select {
 
 }
 
+.homePageDiv {
+  width: 200px;
+}
 
+.container a:hover{
+  color: #FBA100 !important;
+  text-decoration: none !important;
+}
+
+.homePageDiv p:hover{
+  color: #FBA100 !important;
+  text-decoration: none !important;
+}
+
+.userDisplay span{
+  font-size: large;
+}
+
+#threadFilter{
+  font-size: large;
+}

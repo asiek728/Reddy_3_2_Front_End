@@ -51,7 +51,7 @@ const AddComment = ({ id, input, setInputText, message, setMessage }) => {
             value={input} 
             onChange={handleInput}>
         </textarea>
-        <button type='submit'>Submit</button>
+        <button type='submit' id='commentSubmit'>Submit</button>
         <p>{message}</p>
     </form>
   )

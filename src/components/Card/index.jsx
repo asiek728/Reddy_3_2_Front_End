@@ -115,12 +115,12 @@ const Card = ({ cards, cardIncrement, setCardIncrement, stack }) => {
             </div>
 
             <PassedButtons cardIncrement={cardIncrement} setCardIncrement={setCardIncrement} card={cards[cardIncrement]}/><br />
-            <button onClick={deleteCard}>Delete card</button>
+            <button onClick={deleteCard} id='deleteButton'>Delete card</button>
           </>
           :
           <>
             <p style={{ marginTop: "100px", fontSize: "60px" }}>Score: {score} / {cardCount + 1}</p>
-            <button onClick={calculateDate}>Calculate review date</button>
+            <button onClick={calculateDate} id='dateButton'>Calculate review date</button>
           </>
       }
     </div>

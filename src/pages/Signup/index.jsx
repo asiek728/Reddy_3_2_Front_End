@@ -6,7 +6,7 @@ const SignupPage = () => {
   return (
     <div id ="signup">
       <Signup />
-      <Link to="/">Back</Link>
+      <Link to="/"><button id='signupBack'>Back</button></Link>
     </div>
   )
 }

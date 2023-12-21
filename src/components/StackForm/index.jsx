@@ -63,9 +63,9 @@ const StackForm = ({ topic, setTopic }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="topic">Topic: </label>
+            <label htmlFor="topic" id='stackTopic'>Topic: </label>
             <input value={text} type="text" onChange={handleChange} placeholder={topic}/>
-            <button type="submit" className="addStackButton">Add</button>
+            <button type="submit" className="addStackButton" id='addTopic'>Add</button>
             <p>{message}</p>
         </form>
 
