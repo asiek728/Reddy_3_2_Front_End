@@ -3,14 +3,13 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from "react-router-dom";
 import { AddThread, FilterThread, DeleteThread } from "../index"
 
-import { useAuth } from '../../context/ThreadContext';
-
+import { useAuthContext } from '../../hooks/useAuthContext';
 
 import './index.css'
 
 const ThreadsList = ({key}) => {
 
-	
+	const { user } = useAuthContext()
 	const [thread, setThread] = useState([]);
 	const [filterSubject, setFilterSubject] = useState("")
 
@@ -65,6 +64,7 @@ const ThreadsList = ({key}) => {
 		<AddThread/>
 		<FilterThread filterSubject={filterSubject} setFilterSubject={setFilterSubject}/>
 			{displayThread()}
+
     </>
   )
 }
