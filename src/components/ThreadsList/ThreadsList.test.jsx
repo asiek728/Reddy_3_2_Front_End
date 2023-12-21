@@ -8,7 +8,7 @@ import { vi } from 'vitest'
 import * as matchers from '@testing-library/jest-dom/matchers';
 expect.extend(matchers);
 
-import ThreadsList from ".";
+import ThreadsList from "./index";
 
 describe('ThreadList', () => {
 
@@ -45,9 +45,9 @@ describe('ThreadList', () => {
 		};
 		fetchSpy.mockReturnValue(mockResolveValue);
 
-        render(<BrowserRouter><ThreadsList/></BrowserRouter>)
+        render(<ThreadsList/>)
         
-        expect(fetch).toHaveBeenCalledWith('http://localhost:3000/threads')
+    expect(fetch).toHaveBeenCalledWith('http://localhost:3000/threads')
         expect(fetch).toHaveBeenCalledTimes(1)
 
         expect(await screen.findByText('economics'))

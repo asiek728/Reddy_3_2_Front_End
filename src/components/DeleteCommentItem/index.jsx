@@ -6,18 +6,24 @@ const DeleteCommentItem = ({ id , setComment, comment }) => {
 
   const { user } = useAuthContext()
   const [email, setEmail] = useState([])
-  console.log(id)
+  // console.log(id)
 
     useEffect(() => {
 
       async function getComment(id){
-        const response = await fetch(`http://localhost:3000/comments/${id}`)
+        const response = await fetch(`http://localhost:3000/comments/${id}`, {
+          headers: {
+            'Authorization': `Bearer ${user.token}`
+          }
+        })
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
         setEmail(data[0].Email)
       }
-      getComment(id)
-    }, [id])
+      if (user){
+        getComment(id)
+      }
+    }, [id, user])
 
     async function deleteComment (id) {
       if(user.email === email){
