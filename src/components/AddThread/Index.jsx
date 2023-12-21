@@ -70,12 +70,12 @@ const AddThread = () => {
 
 			<form onSubmit={handleSubmit}>
 			<input
-  type="text"
-  name="Question"
-  value={formData.Question}
-  placeholder="Ask a Question"
-  onChange={handleChange}
-/>
+            type="text"
+            name="Question"
+            value={formData.Question}
+            placeholder="Ask a Question"
+            onChange={handleChange}
+          />
     
       <label>
         Select a Subject:

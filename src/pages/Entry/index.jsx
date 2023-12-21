@@ -1,25 +1,53 @@
 import React from 'react'
 import { Login } from '../../pages'
 import { useAuthContext } from '../../hooks/useAuthContext'
+import './style.css'
 
 const Entry = () => {
 
   const { user } = useAuthContext();
 
   return (
-    <>
+    <div id='Home'>
       {
-        !user && 
+        !user &&
         <>
-        <div>Welcome</div>
+        <div id="welcome"> Welcome to your notes</div>
         <Login />
         </>
       }
 
       {
-        user && <div>Testing - now logged in!</div>
+        user &&
+        <div>
+          <div id='intro'>
+            <h1>Welcome to your flashcards page!</h1>
+            <h2>On this page you can:</h2>
+          </div>
+
+          <div className='container' >
+
+            <div className='homePageDiv'>
+              <p>Create your own stacks of flashcards</p>
+            </div>
+
+            <div className='homePageDiv'>
+              <p>Add flashcards to the chosen stack</p>
+            </div>
+
+            <div className='homePageDiv'>
+              <p>Check your knowledge!
+              The recommended review date will be calculated by your score.</p>
+            </div>
+
+            <div className='homePageDiv'>
+              <p>Check out our community forum if you have any questions </p>
+            </div>
+
+          </div>
+        </div>
       }
-    </>
+    </div>
 
   )
 }

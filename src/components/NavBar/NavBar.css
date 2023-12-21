@@ -1,26 +1,47 @@
 nav{
-    background-color: azure;
+    background-color: #36454f;
     border-bottom: 2px solid black;
     position: fixed;
+    display: flex;
+    justify-content: space-between;
     top:0;
     left:0;
     height: 10%;
     width: 100%;
 }
+.logoImg{
+    padding: 10px 10px;
+    padding-left: 20px;
+    border: 2px ;
+}
 
 .links{
+    width: 80%;
     font-size: 2em;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
+    color: #b6dbe2;
+    font-weight: none;
+
+}
+.navLinks{
+    padding: 1% 5%;
+    color: #b6dbe2;
+    font-weight: none !important;
 
 }
 .userDisplay{
-    font-size: 0.5em;
+    color: #b6dbe2;
+    display: fixed;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    font-size: 1em;
     border: none;
     padding: 0;
     margin: 0;
 }
 .active{
-    text-decoration: underline;
-    color: blueviolet;
+    color: #FFFBD6 !important;
+    font-weight: bold;
+    text-decoration: underline double !important;
 }

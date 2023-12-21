@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.homePageDiv {
+    width: 30vw;
+    height: 30vh;
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+
+    background-color: #36454f;
+    box-shadow:2px 2px 4px 3px #273239;
+}
+
+

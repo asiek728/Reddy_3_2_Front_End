@@ -52,4 +52,25 @@ const CommentItem = () => {
   );
 };
 
-export default CommentItem;
+	const displayComment = () => {
+		return comment.map(c => (
+			<div key={c._id} id="commentItem">
+				<p>{c.comment}</p>
+				<DeleteCommentItem id={id} setComment={setComment} comment={comment}/>
+			</div>
+		))
+	}
+
+	return (
+		<>
+		<div> 
+			{displayComment()}
+		</div>
+		<div>
+			<AddCommentItem id={id} input={input} setInputText={setInputText} message={message} setMessage={setMessage} />
+		</div>
+		</>
+	)
+}
+
+export default CommentItem

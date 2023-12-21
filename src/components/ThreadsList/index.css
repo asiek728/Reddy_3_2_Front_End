@@ -5,16 +5,19 @@ h1 {
   }
 
   div {
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 8px;
+  }
+
+  .title{
+    font-weight: bold;
   }
   
   div a {
     color: #007bff;
     text-decoration: none;
-    font-weight: bold;
   }
   
   div a:hover {

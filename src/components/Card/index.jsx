@@ -105,7 +105,7 @@ const Card = ({ cards, cardIncrement, setCardIncrement, stack }) => {
   }
 
   return (
-    <>
+    <div >
       {
         cards.length > cardIncrement
           ?
@@ -123,7 +123,7 @@ const Card = ({ cards, cardIncrement, setCardIncrement, stack }) => {
             <button onClick={calculateDate}>Calculate review date</button>
           </>
       }
-    </>
+    </div>
   )
 }
 
