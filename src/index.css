@@ -170,3 +170,32 @@ label{
   font-weight: none !important;
 
 }
+
+
+input {
+  background-color: #e3edf7;
+  padding: 16px 32px;
+  border: none;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #717375;
+  width: 85%;
+  border-radius: 20px;
+}
+
+
+select {
+  background-color: #e3edf7;
+  border: thin solid rgb(84, 84, 216);
+  border-radius: 4px;
+  font: inherit;
+  padding: 0.5em 3.5em 0.5em 1em;
+  margin-left: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
+
+
