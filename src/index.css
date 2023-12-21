@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: monospace,Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   /* color-scheme: light dark; */
@@ -162,4 +162,11 @@ label{
 
 .signup button {
   padding: 10px
+}
+
+.navLinks{
+  padding: 1% 5%;
+  color: #b6dbe2;
+  font-weight: none !important;
+
 }

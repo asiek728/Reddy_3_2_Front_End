@@ -45,7 +45,6 @@ const FlashStack = ({ stack }) => {
 
       {(deleting ? <CheckDelete destroyStack={destroyStack} deleting={deleting} setDeleting={setDeleting}/>:
       <div role='stackDiv' className='stackDiv'>
-        <div className='notepadBand'></div>
         <h2 className='topic'>{stack.topic}</h2>
         <p>{stack.cardCount} cards </p>
         <p>Revise by: {date} </p>

@@ -37,7 +37,7 @@ const ThreadsList = ({key}) => {
 			if (!filterSubject){
 				return thread.map((t, index) => (
 					<div key={t._id} id='threadItem'>
-						<Link to={`/comments/${t._id}`}>{t.Question}</Link>
+						<Link className='topic'to={`/comments/${t._id}`}>{t.Question}</Link>
 						<p>{t.Subject}</p>
 						<DeleteThread id={t._id} thread={thread} setThread={setThread}/>
 					</div>

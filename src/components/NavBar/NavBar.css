@@ -27,7 +27,8 @@ nav{
 .navLinks{
     padding: 1% 5%;
     color: #b6dbe2;
-    font-weight: none;
+    font-weight: none !important;
+
 }
 .userDisplay{
     color: #b6dbe2;
@@ -40,5 +41,7 @@ nav{
     margin: 0;
 }
 .active{
-    color: #FFFBD6;
+    color: #FFFBD6 !important;
+    font-weight: bold;
+    text-decoration: underline double !important;
 }
