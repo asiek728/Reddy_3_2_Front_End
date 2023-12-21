@@ -20,10 +20,12 @@ const Entry = () => {
       {
         user &&
         <div>
-          <h1>Welcome to your flashcards page!</h1>
-          <h2>On this page you can:</h2>
+          <div id='intro'>
+            <h1>Welcome to your flashcards page!</h1>
+            <h2>On this page you can:</h2>
+          </div>
 
-          <div className='container'>
+          <div className='container' >
 
             <div className='homePageDiv'>
               <p>Create your own stacks of flashcards</p>
@@ -39,7 +41,7 @@ const Entry = () => {
             </div>
 
             <div className='homePageDiv'>
-              <p>Check out our forum if you have any questions</p>
+              <p>Check out our community forum if you have any questions </p>
             </div>
 
           </div>
