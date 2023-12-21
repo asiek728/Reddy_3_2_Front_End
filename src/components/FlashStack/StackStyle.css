@@ -1,7 +1,9 @@
 
 .notepadBand {
-    width: 80%;
-    max-width: 600px;
+    height: 10%;
+    margin:0;
+    padding:0;
+    background-color: rgb(29, 29, 29);
     box-shadow: 10px 10px 40px rgba(black, .15);
     border-radius: 0 0 10px 10px;
     overflow: hidden;
