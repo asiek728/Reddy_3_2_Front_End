@@ -5,17 +5,24 @@ import { BrowserRouter } from "react-router-dom";
 import Router from "react-router";
 import { vi } from "vitest";
 import { AuthProvider } from "../../context/AuthContext";
+import { ScoreProvider } from "../../context/ScoreContext";
+import { TimerProvider } from "../../context/TimerContext";
+
 import * as matchers from "@testing-library/jest-dom/matchers";
 expect.extend(matchers);
-import LoginPage from ".";
+import FlashStacksPage from ".";
 
-describe("LoginPage Component", () => {
+describe("FlashStacksPage Component", () => {
   beforeEach(() => {
     render(
       <AuthProvider>
-        <BrowserRouter>
-          <LoginPage />
-        </BrowserRouter>
+        <ScoreProvider>
+          <TimerProvider>
+            <BrowserRouter>
+              <FlashStacksPage />
+            </BrowserRouter>
+          </TimerProvider>
+        </ScoreProvider>
       </AuthProvider>
     );
   });
@@ -26,8 +33,11 @@ describe("LoginPage Component", () => {
 
 
   it("displays button", () => {
-    const button = screen.getByRole("button", { name: /No account?/i });
-    expect(button).toBeInTheDocument();
-    expect(button).toHaveAttribute('id', 'signupLink');
+    const heading = screen.getByRole("heading");
+    expect(heading).toBeInTheDocument();
+    expect(heading).toHaveTextContent('Your flashcard stacks')
   });
 });
+
+
+//    expect(button).toHaveAttribute('id', 'signupLink');
