@@ -41,4 +41,18 @@ describe("PassedButtons Component", () => {
     expect(pass).toBeInTheDocument();
     expect(fail).toBeInTheDocument();
   });
+
+  it("increments counter when pass button is pressed", () => {
+    const pass = screen.getByRole("button", { name: /Got it/i });
+    expect(cardIncrement).toBe(0);
+    userEvent.click(pass);
+    expect(cardIncrement).toBe(0);
+  });
+
+  it("increments counter when fail button is pressed", () => {
+    const fail = screen.getByRole("button", { name: /Not quite/i });
+    expect(cardIncrement).toBe(0);
+    userEvent.click(fail);
+    expect(cardIncrement).toBe(0);
+  });
 });

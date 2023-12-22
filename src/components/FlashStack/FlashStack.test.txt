@@ -11,7 +11,7 @@ import FlashStack from ".";
 
 const stack = {
   topic: "topic",
-  cardCount: 10,
+  cardCount: 1,
 };
 
 describe("FlashStack Component", () => {
@@ -26,6 +26,5 @@ describe("FlashStack Component", () => {
   it("displays stacks ", () => {
     const stacks = screen.getByRole("stackDiv");
     expect(stacks).toBeInTheDocument();
-    //expect(stacks.childNodes.length).toBe(7);
   });
 });
