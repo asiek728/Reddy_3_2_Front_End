@@ -13,7 +13,7 @@ const Entry = () => {
       {
         !user &&
         <>
-        <div id="welcome"> Welcome to your notes</div>
+        <div id="welcome" role="welcome"> Welcome to your notes</div>
         <Login />
         </>
       }
@@ -22,11 +22,11 @@ const Entry = () => {
         user &&
         <div>
           <div id='intro'>
-            <h1>Welcome to your flashcards page!</h1>
+            <h1 role="welcome">Welcome to your flashcards page!</h1>
             <h2 id='introH2'>On this app you can:</h2>
           </div>
 
-          <div className='container' >
+          <div className='container' role="linkContainer">
               <Link id='' to={'/flashStacks'} >
                 <div className='homePageDiv'>
                   <p>Create your own stacks of flashcards</p>
