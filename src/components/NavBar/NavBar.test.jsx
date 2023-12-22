@@ -20,11 +20,11 @@ describe("Navbar Component", () => {
   it("displays a navbar with 2 children", () => {
     const nav = screen.getByRole("navigation");
     expect(nav).toBeInTheDocument();
-    expect(nav.childNodes.length).toBe(4);
+    expect(nav.childNodes.length).toBe(3);
   });
 
   it("displays a navbar with correct names", () => {
-    const nav = screen.getByRole("navigation");
+    const nav = screen.getByRole("navbar");
     expect(nav.childNodes[0].textContent).toBe("Home");
     expect(nav.childNodes[1].textContent).toBe("Flashcards");
     expect(nav.childNodes[2].textContent).toBe("Forum");

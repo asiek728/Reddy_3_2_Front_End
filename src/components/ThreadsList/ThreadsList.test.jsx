@@ -4,6 +4,8 @@ import { screen, render, cleanup } from '@testing-library/react';
 import { BrowserRouter } from "react-router-dom";
 import Router from 'react-router';
 import { vi } from 'vitest'
+import { AuthProvider } from "../../context/AuthContext";
+
 
 import * as matchers from '@testing-library/jest-dom/matchers';
 expect.extend(matchers);
@@ -13,6 +15,16 @@ import ThreadsList from "./index";
 describe('ThreadList', () => {
 
     const fetchSpy = vi.spyOn(global, 'fetch')
+
+    beforeEach(() => {
+        render(
+            <BrowserRouter>
+            <AuthProvider>
+                <ThreadsList/>
+            </AuthProvider>
+            </BrowserRouter>
+        )
+    })
 
     afterEach(() => {
         fetchSpy.mockRestore()
@@ -45,7 +57,6 @@ describe('ThreadList', () => {
 		};
 		fetchSpy.mockReturnValue(mockResolveValue);
 
-        render(<ThreadsList/>)
         
     expect(fetch).toHaveBeenCalledWith('http://localhost:3000/threads')
         expect(fetch).toHaveBeenCalledTimes(1)

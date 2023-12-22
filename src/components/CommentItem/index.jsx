@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
 import { AddCommentItem, DeleteCommentItem } from "..";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
@@ -8,8 +9,10 @@ const CommentItem = () => {
   const [comment, setComment] = useState([]);
 
   const { user } = useAuthContext();
+
   const [input, setInputText] = useState("");
   const [message, setMessage] = useState("");
+
   let { id } = useParams();
 
   useEffect(() => {
@@ -29,7 +32,7 @@ const CommentItem = () => {
 
   const displayComment = () => {
     return comment.map((c) => (
-      <div key={c._id}>
+      <div key={c._id} id="commentItem">
         <p>{c.comment}</p>
         <DeleteCommentItem id={id} setComment={setComment} comment={comment} />
       </div>
@@ -52,6 +55,4 @@ const CommentItem = () => {
   );
 };
 
-
-
-export default CommentItem
+export default CommentItem;

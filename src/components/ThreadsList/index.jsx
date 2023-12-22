@@ -64,9 +64,11 @@ const ThreadsList = ({key}) => {
   return (
     <div id='threads'>
 		<h1>Threads</h1>
-		<AddThread/>
-		<FilterThread filterSubject={filterSubject} setFilterSubject={setFilterSubject}/>
+		<div>
+			<AddThread/>
+			<FilterThread filterSubject={filterSubject} setFilterSubject={setFilterSubject}/>
 			{displayThread()}
+		</div>
     </div>
   )
 }

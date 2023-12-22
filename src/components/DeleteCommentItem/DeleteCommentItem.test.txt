@@ -1,0 +1,30 @@
+import React from "react";
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
+import { screen, render, cleanup } from "@testing-library/react";
+import { AuthProvider } from "../../context/AuthContext";
+import { BrowserRouter } from "react-router-dom";
+import * as matchers from "@testing-library/jest-dom/matchers";
+expect.extend(matchers);
+
+import DeleteCommentItem from ".";
+
+describe("Add Delete Component", () => {
+  beforeEach(() => {
+    render(
+      <AuthProvider>
+        <BrowserRouter>
+          <DeleteCommentItem />
+        </BrowserRouter>
+      </AuthProvider>
+    );
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
+
+  it("displays title text when page is loaded", () => {
+    const button = screen.getByRole("button");
+    expect(button).toBeInTheDocument();
+  });
+});

@@ -55,9 +55,9 @@ const FlashStack = ({ stack }) => {
         </section>
 
         <Link to={`${stack._id}/new`} key={stack._id}>
-          <button className='addRemove'>Add card</button>
+          <button className='addRemove' id='addCard'>Add card</button>
         </Link>
-      <button onClick={changeDeleting} className='addRemove'>Remove Stack</button>
+      <button onClick={changeDeleting} className='addRemove' id='removeCard'>Remove Stack</button>
       </div>
       )}
     </>
