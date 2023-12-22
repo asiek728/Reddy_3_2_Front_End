@@ -74,10 +74,10 @@ const CardsPage = () => {
   }
 
   return (
-    <div id='flashcardTest'>
-      <h1> ... flashcards</h1>
-      <h2 id='flashIntro'>Press on card to flip it</h2>
-      <div>
+    <div id='flashcardTest' role='parent'>
+      <h1 role='head1'>flashcards</h1>
+      <h2 id='flashIntro' role='head2'>Press on card to flip it</h2>
+      <div role='cards'>
         {displayCards()}
       </div>
     </div>

@@ -5,14 +5,6 @@ import { useAuthContext } from '../../hooks/useAuthContext'
 
 const DeleteThread = ({ id, thread, setThread }) => {
 
-// 	const [items, setItems] = useState([]);
-
-// useEffect(() => {
-//   const items = JSON.parse(localStorage.getItem('items'));
-//   if (items) {
-//    setItems(items);
-//   }
-// }, []);
     const { user } = useAuthContext()
 
     const [email, setEmail] = useState([])

@@ -30,7 +30,7 @@ const ThreadsList = ({key}) => {
 			fetchThreads(user)
 		}
 	},[user])
-
+	console.log(thread)
 	
 		const displayThread = () => {
 			
