@@ -36,15 +36,15 @@ const ThreadsList = ({key}) => {
 			
 			if (!filterSubject){
 				return thread.map((t, index) => (
-					<div key={t._id}>
-						<Link to={`/comments/${t._id}`}>{t.Question}</Link>
+					<div key={t._id} id='threadItem'>
+						<Link className='topic'to={`/comments/${t._id}`}>{t.Question}</Link>
 						<p>{t.Subject}</p>
 						<DeleteThread id={t._id} thread={thread} setThread={setThread}/>
 					</div>
 				));
 			} else if (filterSubject === 'showAll') {
 				return thread.map((t, index) => (
-					<div key={t._id}>
+					<div key={t._id} id='threadItem'>
 						<Link to={`/comments/${t._id}`}>{t.Question}</Link>
 						<p>{t.Subject}</p>
 						<DeleteThread id={t._id} thread={thread} setThread={setThread}/>
@@ -52,7 +52,7 @@ const ThreadsList = ({key}) => {
 				));
 			} else {
 			return thread.filter(t => t.Subject === filterSubject).map((t, index) => (
-				<div key={t._id}>
+				<div key={t._id} id='threadItem'>
 					<p>{t.Subject}</p>
 					<Link to={`/comments/${t._id}`}>{t.Question}</Link>
 					<DeleteThread id={t._id} thread={thread} setThread={setThread}/>
@@ -62,13 +62,12 @@ const ThreadsList = ({key}) => {
 		};
     
   return (
-    <>
+    <div id='threads'>
 		<h1>Threads</h1>
 		<AddThread/>
 		<FilterThread filterSubject={filterSubject} setFilterSubject={setFilterSubject}/>
 			{displayThread()}
-
-    </>
+    </div>
   )
 }
 
