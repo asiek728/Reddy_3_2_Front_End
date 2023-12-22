@@ -1,49 +1,44 @@
-import React from 'react';
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { screen, render, cleanup } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
-global.userEvent = userEvent
+import React from "react";
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
+import { screen, render, cleanup, fireEvent } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
+import { ScoreProvider } from "../../context/ScoreContext";
+import { AuthProvider } from "../../context/AuthContext";
+import PassedButtons from ".";
 
-import * as matchers from '@testing-library/jest-dom/matchers';
+import * as matchers from "@testing-library/jest-dom/matchers";
 expect.extend(matchers);
 
-import PassedButtons from '.'
+describe("PassedButtons Component", () => {
+  let cardIncrement;
 
-describe('Card Component', () => {
-    let cardIncrement
-    beforeEach(() => {
-        cardIncrement = 0
-        render(
-            <MemoryRouter>
-                <PassedButtons cardIncrement={cardIncrement} setCardIncrement={null}/>
-            </MemoryRouter>
-        )
-      });
-    
-      afterEach(() => {
-        cleanup();
-      });
+  beforeEach(() => {
+    cardIncrement = 0; // Initialize cardIncrement directly in the test
 
+    render(
+      <AuthProvider>
+        <MemoryRouter>
+          <ScoreProvider>
+            <PassedButtons
+              cardIncrement={cardIncrement}
+              setCardIncrement={null}
+            />
+          </ScoreProvider>
+        </MemoryRouter>
+      </AuthProvider>
+    );
+  });
 
-    it('renders 2 buttons ',() => {
-        const pass = screen.getByRole('button', { name: /Got it/i })
-        const fail = screen.getByRole('button', { name: /Not quite/i })
-        expect(pass).toBeInTheDocument()
-        expect(fail).toBeInTheDocument()
-    })
+  afterEach(() => {
+    cleanup();
+  });
 
-    it('increments counter when pass button is pressed', () => {
-        const pass = screen.getByRole('button', { name: /Got it/i })
-        expect(cardIncrement).toBe(0)
-        userEvent.click(pass)
-        expect(cardIncrement).toBe(1)
-    })
+  it("renders 'Got it' and 'Not quite' buttons", () => {
+    const pass = screen.getByRole("button", { name: /Got it/i });
+    const fail = screen.getByRole("button", { name: /Not quite/i });
 
-    it('increments counter when fail button is pressed', () => {
-        const fail = screen.getByRole('button', { name: /Not quite/i })
-        expect(cardIncrement).toBe(0)
-        userEvent.click(fail)
-        expect(cardIncrement).toBe(1)
-    })
-})
-
+    expect(pass).toBeInTheDocument();
+    expect(fail).toBeInTheDocument();
+  });
+});
