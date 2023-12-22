@@ -70,6 +70,7 @@ const AddThread = () => {
 
 			<form onSubmit={handleSubmit}>
 			<input
+            id='threadQuestion'
             type="text"
             name="Question"
             value={formData.Question}
@@ -77,7 +78,7 @@ const AddThread = () => {
             onChange={handleChange}
           />
     
-      <label>
+      <label id='threadFilter'>
         Select a Subject:
         <select name="Subject" value={formData.Subject} onChange={handleChange}>
   				{subjectOptions.map((option) => (
@@ -87,7 +88,7 @@ const AddThread = () => {
 					))}
 				</select>
       </label>
-      <button type="submit">Add Thread</button>
+      <button type="submit" id='addThread'>Add Thread</button>
     </form>
 		</>
 	)

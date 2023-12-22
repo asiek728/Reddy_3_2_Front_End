@@ -29,8 +29,8 @@ const Signup = () => {
         value={password} 
       />
 
-      <button disabled={Loading}>Sign up</button>
-      {error && <div className="error">{error}</div>}
+      <button disabled={Loading} id="signUpBtn">Sign up</button>
+      {error && <div className="error" id="errorSignup">{error}</div>}
     </form>
   )
 }

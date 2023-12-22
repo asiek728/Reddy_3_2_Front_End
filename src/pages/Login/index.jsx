@@ -7,7 +7,7 @@ const LoginPage = () => {
     <>
       <Login />
 
-      <Link to="/signup">No account?</Link>
+      <Link  to="/signup"><button id="signupLink">No account?</button></Link>
     </>
   )
 }

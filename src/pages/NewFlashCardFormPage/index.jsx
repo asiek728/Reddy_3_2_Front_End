@@ -100,13 +100,13 @@ const NewFlashCardFormPage = () => {
         <div className="newUpdatePopup" id="newUpdatePopup">
             <h1>Add a New Flash Card</h1>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id="formFlashCard">
                 <label htmlFor="frontFlashCard">Front:</label>
                 <input value={inputFrontText} type="text" id="frontFlashCard" className="flashCardInput" onChange={handleInputFrontText} />
                 <label htmlFor="backFlashCard">Back:</label>
 
                 <input value={inputBackText} type="text" id="backFlashCard" className="flashCardInput" onChange={handleInputBackText} />
-                <button type="submit" className="flashCardButton">Add</button>
+                <button type="submit" className="flashCardButton" id="newFlashCard">Add</button>
                 <p>{message}</p>
             </form>
         </div>

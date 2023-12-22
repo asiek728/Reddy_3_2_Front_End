@@ -64,7 +64,7 @@ const CardsPage = () => {
               ? <>
                 <p style={{ marginTop: "200px", fontSize: "60px" }}>The stack is empty...</p>
                 <Link to={`new`} key={id.id}>
-                  <button>Add card</button>
+                  <button id="addCardToPile">Add card</button>
                 </Link>
               </>
               :
@@ -76,7 +76,7 @@ const CardsPage = () => {
   return (
     <div id='flashcardTest'>
       <h1> ... flashcards</h1>
-      <h2>Press on card to flip it</h2>
+      <h2 id='flashIntro'>Press on card to flip it</h2>
       <div>
         {displayCards()}
       </div>
