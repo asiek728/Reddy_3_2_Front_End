@@ -10,7 +10,7 @@ const StackForm = ({ topic, setTopic }) => {
     const [text, setText] = useState("")
     const [loadingPOST, setLoadingPOST] = useState(true);
     const [message, setMessage] = useState("")
-    const { timer, setTimer } = useTimer()
+    // const { timer, setTimer } = useTimer()
 
     /////AUTH
     const { user } = useAuthContext()
@@ -31,7 +31,7 @@ const StackForm = ({ topic, setTopic }) => {
 
     async function createNewStack(e) {
         const today = new Date();
-        setTimer(today)
+        // setTimer(today)
 
         const options = {
             method: "POST",

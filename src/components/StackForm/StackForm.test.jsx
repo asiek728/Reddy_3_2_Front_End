@@ -9,8 +9,11 @@ import * as matchers from "@testing-library/jest-dom/matchers";
 expect.extend(matchers);
 import StackForm from ".";
 
+import Getter from '.'
+import axios from 'axios';
+
 describe("StackForm Component", () => {
-	const = 
+	// const = 
   beforeEach(() => {
     render(
       <AuthProvider>
@@ -26,7 +29,7 @@ describe("StackForm Component", () => {
   });
 
   it("displays text when page is loaded", () => {
-    const heading = screen.getByText("Sign Up");
+    const heading = screen.getByText("Topic:");
     expect(heading).toBeInTheDocument();
   });
 
@@ -39,4 +42,16 @@ describe("StackForm Component", () => {
     const button = screen.getByRole("button");
     expect(button).toBeInTheDocument();
   });
+
+  it('posts a new card givena topic', async () => {
+  vi.spyOn(axios, 'post').mockResolvedValueOnce({
+  topic: [{ "topic" : "Geography" }]
+  }) 
+  const card = await screen.getByRole("textbox")
+  expect(card.childNodes.textContent).toBe(undefined)
+  }
+  )
+
+
+
 });
