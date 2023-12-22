@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { screen, render, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AuthProvider } from "../../context/AuthContext";
-import { ThreadsList } from "../../components/ThreadsList";
+import ThreadsList from "../../components/ThreadsList"; // Import ThreadsList
 
 import { BrowserRouter } from "react-router-dom";
 import * as matchers from "@testing-library/jest-dom/matchers";
 expect.extend(matchers);
 
-import { ThreadsPage } from ".";
+import ThreadsPage from ".";
 
 describe("ThreadsPage", () => {
   beforeEach(() => {
@@ -27,7 +27,16 @@ describe("ThreadsPage", () => {
   });
 
   it("displays text when page is loaded", () => {
-    const heading = screen.getByText("Sign Up");
+    const heading = screen.getByText("Threads");
     expect(heading).toBeInTheDocument();
+  });
+  it("displays textbox input", () => {
+    const email = screen.getByRole("textbox");
+    expect(email).toBeInTheDocument();
+  });
+
+  it("displays button input", () => {
+    const button = screen.getByRole("button");
+    expect(button).toBeInTheDocument();
   });
 });
