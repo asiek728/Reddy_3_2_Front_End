@@ -1,5 +1,5 @@
-export { default as ThreadsList } from ".ThreadsList"
-export { default as CommentItem } from ".CommentItem"
+export { default as ThreadsList } from "./ThreadsList"
+export { default as CommentItem } from "./CommentItem"
 export {default as AddThread} from "./AddThread"
 export { default as DeleteThread } from "./DeleteThread"
 export {default as FlashStack} from "./FlashStack"
