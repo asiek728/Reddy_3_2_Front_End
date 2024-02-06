@@ -34,7 +34,7 @@ const FlashStack = ({ stack }) => {
       }
     }
     try {
-      const destroy = await fetch(`http://localhost:3000/flashStacks/${stack._id}`, options)
+      const destroy = await fetch(`https://flashcardsbackend-v5tb.onrender.com/flashStacks/${stack._id}`, options)
     } catch (error) {
       console.log(error.message)
     }

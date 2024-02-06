@@ -15,7 +15,7 @@ const NewFlashCardFormPage = () => {
 
     useEffect(() => {
         const displayCardsNo = async () => {
-            const { data } = await axios.get(`http://localhost:3000/flashStacks/${id.id}`, {
+            const { data } = await axios.get(`https://flashcardsbackend-v5tb.onrender.com/flashStacks/${id.id}`, {
                 headers: {
                   'Authorization': `Bearer ${user.token}`
                 }
@@ -61,7 +61,7 @@ const NewFlashCardFormPage = () => {
 
         }
         const response = await fetch(
-            `http://localhost:3000/flashCards`,
+            `https://flashcardsbackend-v5tb.onrender.com/flashCards`,
             options
         );
 
@@ -85,7 +85,7 @@ const NewFlashCardFormPage = () => {
         }
 
         const response = await fetch(
-            `http://localhost:3000/flashStacks/${id.id}`,
+            `https://flashcardsbackend-v5tb.onrender.com/flashStacks/${id.id}`,
             options
         );
         setCardCount(cardCount = cardCount + 1)

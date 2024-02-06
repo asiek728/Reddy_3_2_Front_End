@@ -18,7 +18,7 @@ const ThreadsList = ({key}) => {
 
 	useEffect(() => {
 	const fetchThreads = async () => {
-            const response = await fetch('http://localhost:3000/threads', {
+            const response = await fetch('https://flashcardsbackend-v5tb.onrender.com/threads', {
                 headers: {
                   'Authorization': `Bearer ${user.token}`
                 }

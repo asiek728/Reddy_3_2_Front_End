@@ -17,7 +17,7 @@ const CommentItem = () => {
 
   useEffect(() => {
     const fetchComment = async () => {
-      const response = await fetch(`http://localhost:3000/comments/${id}`, {
+      const response = await fetch(`https://flashcardsbackend-v5tb.onrender.com/comments/${id}`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

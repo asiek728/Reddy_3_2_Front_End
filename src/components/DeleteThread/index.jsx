@@ -12,7 +12,7 @@ const DeleteThread = ({ id, thread, setThread }) => {
     useEffect(() => {
 
         async function getThread(id){
-            const response = await fetch(`http://localhost:3000/threads/${id}`, 
+            const response = await fetch(`https://flashcardsbackend-v5tb.onrender.com/threads/${id}`, 
             {
                 headers: {
                     'Authorization': `Bearer ${user.token}`
@@ -30,7 +30,7 @@ const DeleteThread = ({ id, thread, setThread }) => {
 
         if (user.email === email){
 
-            await fetch(`http://localhost:3000/threads/${id}`, {
+            await fetch(`https://flashcardsbackend-v5tb.onrender.com/threads/${id}`, {
                 method: "DELETE",
                 headers: { 
                     'Content-Type': 'application/json',

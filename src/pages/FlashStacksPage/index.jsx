@@ -15,7 +15,7 @@ const FlashStacksPage = () => {
 
   useEffect(() => {
     const displayStacks = async () => {
-      const { data } = await axios.get("http://localhost:3000/flashStacks", {
+      const { data } = await axios.get("https://flashcardsbackend-v5tb.onrender.com/flashStacks", {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

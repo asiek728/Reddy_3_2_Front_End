@@ -24,7 +24,7 @@ const PassedButtons = ({ cardIncrement, setCardIncrement, card }) => {
     };
 
     const response = await fetch(
-      `http://localhost:3000/flashCards/${card["_id"]}`,
+      `https://flashcardsbackend-v5tb.onrender.com/flashCards/${card["_id"]}`,
       options
     );
   }
@@ -45,7 +45,7 @@ const PassedButtons = ({ cardIncrement, setCardIncrement, card }) => {
     };
 
     const response = await fetch(
-      `http://localhost:3000/flashCards/${card["_id"]}`,
+      `https://flashcardsbackend-v5tb.onrender.com/flashCards/${card["_id"]}`,
       options
     );
   }

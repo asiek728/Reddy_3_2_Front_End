@@ -44,7 +44,7 @@ const AddThread = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/threads', {
+      const response = await fetch('https://flashcardsbackend-v5tb.onrender.com/threads', {
         method: 'POST',
         headers: {
           "Accept": 'application/json',

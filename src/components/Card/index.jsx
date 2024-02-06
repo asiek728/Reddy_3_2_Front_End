@@ -15,7 +15,7 @@ const Card = ({ cards, cardIncrement, setCardIncrement, stack }) => {
 
   useEffect(() => {
     const displayCardsNo = async () => {
-      const { data } = await axios.get(`http://localhost:3000/flashStacks/${id.id}`, {
+      const { data } = await axios.get(`https://flashcardsbackend-v5tb.onrender.com/flashStacks/${id.id}`, {
         headers: {
           'Authorization': `Bearer ${user.token}`
         }
@@ -57,7 +57,7 @@ const Card = ({ cards, cardIncrement, setCardIncrement, stack }) => {
     }
 
     const response = await fetch(
-        `http://localhost:3000/flashStacks/${id.id}`,
+        `https://flashcardsbackend-v5tb.onrender.com/flashStacks/${id.id}`,
         options
     );
 
@@ -75,7 +75,7 @@ const Card = ({ cards, cardIncrement, setCardIncrement, stack }) => {
       }
     }
     try {
-      const destroy = await fetch(`http://localhost:3000/flashCards/${cards[cardIncrement]._id}`, options)
+      const destroy = await fetch(`https://flashcardsbackend-v5tb.onrender.com/flashCards/${cards[cardIncrement]._id}`, options)
       console.log("Deleted Stack: " + cards.frontSide)
       window.location.reload(true)
     } catch (error) {
@@ -99,7 +99,7 @@ const Card = ({ cards, cardIncrement, setCardIncrement, stack }) => {
     }
 
     const response = await fetch(
-      `http://localhost:3000/flashStacks/${id.id}`,
+      `https://flashcardsbackend-v5tb.onrender.com/flashStacks/${id.id}`,
       options
     );
   }

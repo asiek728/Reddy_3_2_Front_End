@@ -11,7 +11,7 @@ const DeleteCommentItem = ({ id , setComment, comment }) => {
     useEffect(() => {
 
       async function getComment(id){
-        const response = await fetch(`http://localhost:3000/comments/${id}`, {
+        const response = await fetch(`https://flashcardsbackend-v5tb.onrender.com/comments/${id}`, {
           headers: {
             'Authorization': `Bearer ${user.token}`
           }
@@ -27,7 +27,7 @@ const DeleteCommentItem = ({ id , setComment, comment }) => {
 
     async function deleteComment (id) {
       if(user.email === email){
-        await fetch(`http://localhost:3000/comments/${id}`, {
+        await fetch(`https://flashcardsbackend-v5tb.onrender.com/comments/${id}`, {
             method: "DELETE",
             headers: { 
               'Content-Type': 'application/json',

@@ -14,7 +14,7 @@ const AddComment = ({ id, input, setInputText, message, setMessage }) => {
     async function handleSubmit(e){
         e.preventDefault()
 
-        await fetch(`http://localhost:3000/comments`, {
+        await fetch(`https://flashcardsbackend-v5tb.onrender.com/comments`, {
             method: "POST",
             body: JSON.stringify({ comment: input, ThreadID: id, Email: user.email}),
             headers: {

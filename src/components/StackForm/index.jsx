@@ -50,7 +50,7 @@ const StackForm = ({ topic, setTopic }) => {
 
         }
         const response = await fetch(
-            `http://localhost:3000/flashStacks`,
+            `https://flashcardsbackend-v5tb.onrender.com/flashStacks`,
             options
         );
         setText("")

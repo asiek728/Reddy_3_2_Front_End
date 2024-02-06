@@ -23,7 +23,7 @@ const CardsPage = () => {
 
   useEffect(() => {
     const fetchCards = async () => {
-      const { data } = await axios.get(`http://localhost:3000/flashCards/${id.id}`, {
+      const { data } = await axios.get(`https://flashcardsbackend-v5tb.onrender.com/flashCards/${id.id}`, {
         headers: {
           'Authorization': `Bearer ${user.token}`
         }
@@ -39,7 +39,7 @@ const CardsPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get(`http://localhost:3000/flashStacks/${id.id}`, {
+      const { data } = await axios.get(`https://flashcardsbackend-v5tb.onrender.com/flashStacks/${id.id}`, {
         headers: {
           'Authorization': `Bearer ${user.token}`
         }
